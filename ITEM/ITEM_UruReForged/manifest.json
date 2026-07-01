@@ -1,0 +1,38 @@
+{
+  "Name": "UruReForged",
+  "Author": "CorvaeOboro",
+  "Version": "20260630",
+  "Replacements": [
+    {
+      "TextureName": "item_urubase01",
+      "DdsFileName": "item_urubase01.dds"
+    },
+    {
+      "TextureName": "item_urubase02",
+      "DdsFileName": "item_urubase02.dds"
+    },
+    {
+      "TextureName": "item_urubase03",
+      "DdsFileName": "item_urubase03.dds"
+    },
+    {
+      "TextureName": "item_urubase05",
+      "DdsFileName": "item_urubase05.dds"
+    },
+    {
+      "TextureName": "item_urubase08",
+      "DdsFileName": "item_urubase08.dds"
+    },
+    {
+      "TextureName": "item_urubase10",
+      "DdsFileName": "item_urubase10.dds"
+    }
+  ],
+  "AchievementReplacements": [],
+  "StoreReplacements": [],
+  "Languages": [],
+  "UpkReplacements": [],
+  "AudioPacks": [],
+  "HasTextures": true,
+  "TextureReplacementCount": 6
+}

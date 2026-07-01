@@ -1,0 +1,194 @@
+{
+  "Name": "DarkRunes",
+  "Author": "CorvaeOboro",
+  "Version": "20260630",
+  "Replacements": [
+    {
+      "TextureName": "item_ururecipe01",
+      "DdsFileName": "item_ururecipe01.dds"
+    },
+    {
+      "TextureName": "item_ururune01",
+      "DdsFileName": "item_ururune01.dds"
+    },
+    {
+      "TextureName": "item_ururune02",
+      "DdsFileName": "item_ururune02.dds"
+    },
+    {
+      "TextureName": "item_ururune03",
+      "DdsFileName": "item_ururune03.dds"
+    },
+    {
+      "TextureName": "item_ururune04",
+      "DdsFileName": "item_ururune04.dds"
+    },
+    {
+      "TextureName": "item_ururune05",
+      "DdsFileName": "item_ururune05.dds"
+    },
+    {
+      "TextureName": "item_ururune06",
+      "DdsFileName": "item_ururune06.dds"
+    },
+    {
+      "TextureName": "item_ururune07",
+      "DdsFileName": "item_ururune07.dds"
+    },
+    {
+      "TextureName": "item_ururune08",
+      "DdsFileName": "item_ururune08.dds"
+    },
+    {
+      "TextureName": "item_ururune09",
+      "DdsFileName": "item_ururune09.dds"
+    },
+    {
+      "TextureName": "item_ururune10",
+      "DdsFileName": "item_ururune10.dds"
+    },
+    {
+      "TextureName": "item_ururune11",
+      "DdsFileName": "item_ururune11.dds"
+    },
+    {
+      "TextureName": "item_ururune12",
+      "DdsFileName": "item_ururune12.dds"
+    },
+    {
+      "TextureName": "item_ururune13",
+      "DdsFileName": "item_ururune13.dds"
+    },
+    {
+      "TextureName": "item_ururune14",
+      "DdsFileName": "item_ururune14.dds"
+    },
+    {
+      "TextureName": "item_ururune15",
+      "DdsFileName": "item_ururune15.dds"
+    },
+    {
+      "TextureName": "item_ururune16",
+      "DdsFileName": "item_ururune16.dds"
+    },
+    {
+      "TextureName": "item_ururune17",
+      "DdsFileName": "item_ururune17.dds"
+    },
+    {
+      "TextureName": "item_ururune18",
+      "DdsFileName": "item_ururune18.dds"
+    },
+    {
+      "TextureName": "item_ururune19",
+      "DdsFileName": "item_ururune19.dds"
+    },
+    {
+      "TextureName": "item_ururune20",
+      "DdsFileName": "item_ururune20.dds"
+    },
+    {
+      "TextureName": "item_ururune21",
+      "DdsFileName": "item_ururune21.dds"
+    },
+    {
+      "TextureName": "item_ururune22",
+      "DdsFileName": "item_ururune22.dds"
+    },
+    {
+      "TextureName": "item_ururune23",
+      "DdsFileName": "item_ururune23.dds"
+    },
+    {
+      "TextureName": "item_ururune24",
+      "DdsFileName": "item_ururune24.dds"
+    },
+    {
+      "TextureName": "item_ururune25",
+      "DdsFileName": "item_ururune25.dds"
+    },
+    {
+      "TextureName": "item_ururune26",
+      "DdsFileName": "item_ururune26.dds"
+    },
+    {
+      "TextureName": "item_ururune27",
+      "DdsFileName": "item_ururune27.dds"
+    },
+    {
+      "TextureName": "item_ururune28",
+      "DdsFileName": "item_ururune28.dds"
+    },
+    {
+      "TextureName": "item_ururune29",
+      "DdsFileName": "item_ururune29.dds"
+    },
+    {
+      "TextureName": "item_ururune30",
+      "DdsFileName": "item_ururune30.dds"
+    },
+    {
+      "TextureName": "item_ururune31",
+      "DdsFileName": "item_ururune31.dds"
+    },
+    {
+      "TextureName": "item_ururune32",
+      "DdsFileName": "item_ururune32.dds"
+    },
+    {
+      "TextureName": "item_ururune33",
+      "DdsFileName": "item_ururune33.dds"
+    },
+    {
+      "TextureName": "item_ururune34",
+      "DdsFileName": "item_ururune34.dds"
+    },
+    {
+      "TextureName": "item_ururune35",
+      "DdsFileName": "item_ururune35.dds"
+    },
+    {
+      "TextureName": "item_ururune36",
+      "DdsFileName": "item_ururune36.dds"
+    },
+    {
+      "TextureName": "item_ururune37",
+      "DdsFileName": "item_ururune37.dds"
+    },
+    {
+      "TextureName": "item_ururune38",
+      "DdsFileName": "item_ururune38.dds"
+    },
+    {
+      "TextureName": "item_ururune39",
+      "DdsFileName": "item_ururune39.dds"
+    },
+    {
+      "TextureName": "item_ururune40",
+      "DdsFileName": "item_ururune40.dds"
+    },
+    {
+      "TextureName": "item_ururune41",
+      "DdsFileName": "item_ururune41.dds"
+    },
+    {
+      "TextureName": "item_ururune42",
+      "DdsFileName": "item_ururune42.dds"
+    },
+    {
+      "TextureName": "item_ururune43",
+      "DdsFileName": "item_ururune43.dds"
+    },
+    {
+      "TextureName": "item_ururune44",
+      "DdsFileName": "item_ururune44.dds"
+    }
+  ],
+  "AchievementReplacements": [],
+  "StoreReplacements": [],
+  "Languages": [],
+  "UpkReplacements": [],
+  "AudioPacks": [],
+  "HasTextures": true,
+  "TextureReplacementCount": 45
+}
