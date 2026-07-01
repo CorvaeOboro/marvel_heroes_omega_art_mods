@@ -1,25 +1,29 @@
 # Marvel Heroes Omega art mods 
 Marvel Heroes Omega fan art client modifications
 
-DOWNLOAD = [ITEM_DarkRunes]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip )    | [ITEM_UruReForged]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip )    | [UI_Item_NoGlassOverlay]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip )    |  [PowerNotReady ]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip )    |    [INSTALL]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install)   | 
+DOWNLOAD = [ITEM_DarkRunes]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/blob/main/00_MODS/ITEM_DarkRunes_20260630.zip?raw=true )    | [ITEM_UruReForged]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/blob/main/00_MODS/ITEM_UruReForged_20260630.zip?raw=true )    | [UI_Item_NoGlassOverlay]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/blob/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip?raw=true )    |  [PowerNotReady]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/blob/main/00_MODS/PowerNotReady_removal.zip?raw=true )    |    [INSTALL]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install)   | 
 
 
 ## ITEM_DarkRunes
 ![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
-[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/ITEM_DarkRunes_20260630.zip) 
+
+[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/ITEM_DarkRunes_20260630.zip?raw=true) 
 
 ## ITEM_UruReForged
 ![ITEM_UruReForged](/ITEM/ITEM_UruReForged/ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
-[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/ITEM_UruReForged_20260630.zip) 
+
+[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/ITEM_UruReForged_20260630.zip?raw=true) 
 
 ## UI_Item_NoGlassOverlay
 ![UI_Item_NoGlassOverlay](/UI/UI_Item_NoGlassOverlay_compare.webp?raw=true "UI_Item_NoGlassOverlay")
-[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip) 
+
+[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip?raw=true) 
 - removes the "glass" style bevel emboss on item and power icons
 
 ## Power Not Ready = hidden
 ![Power Not Ready = hidden](/UI/marvel_heroes_omega_mod_display_message_removal.png?raw=true "Power Not Ready = hidden")
-[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/PowerNotReady_removal.zip) 
+
+[DOWNLOAD](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/raw/main/00_MODS/PowerNotReady_removal.zip?raw=true) 
 - a locale string replacement client mod to hide the display of "Power not ready" red text and other similar failure messages  
 
 
