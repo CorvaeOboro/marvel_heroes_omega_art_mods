@@ -1,24 +1,28 @@
 # Marvel Heroes Omega art mods 
 Marvel Heroes Omega fan art client modifications
 
-DOWNLOAD = [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip )    |    [INSTALL]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install)   | 
+DOWNLOAD = [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260716.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip )    |    [INSTALL]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install)   | 
 
 
 ## ITEM_DarkRunes
 ![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip) 
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip)  | Runes of Asgardian magic carved into basalt stone 
 
 ## ITEM_UruReForged
 ![ITEM_UruReForged](/ITEM/ITEM_UruReForged/ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) 
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) | Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor
+
+## ITEM_ArtifactsArmor
+![ITEM_ArtifactsArmor](/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png?raw=true "ITEM_ArtifactsArmor")
+
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260716.zip) | ancient Artifacts of powers cosmic awakened Armor enchanted by the techno-logical
 
 ## UI_Item_NoGlassOverlay
 ![UI_Item_NoGlassOverlay](/UI/UI_Item_NoGlassOverlay_compare.webp?raw=true "UI_Item_NoGlassOverlay")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip) 
-- removes the "glass" style bevel emboss on item and power icons
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip)  | removes the "glass" style bevel emboss on item and power icons
 
 ## Power Not Ready = hidden
 ![Power Not Ready = hidden](/UI/marvel_heroes_omega_mod_display_message_removal.png?raw=true "Power Not Ready = hidden")

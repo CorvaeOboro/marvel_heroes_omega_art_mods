@@ -1,0 +1,19 @@
+{
+  "target_dir": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\",
+  "mask_path": "D:/GAMES/MarvelHeroesOmega/00_MH_Art_Mods/Z_TOOLS/input/marvelhud.icon_raritybg_png.png",
+  "bg_color": "0.0824, 0.0353, 0.0196",
+  "unique_item_path": "D:/GAMES/MarvelHeroesOmega/00_MH_Art_Mods/ITEM/ITEM_EquipmentOutlined/original/item_unique213.png",
+  "unique_gt_path": "D:/GAMES/MarvelHeroesOmega/00_MH_Art_Mods/Z_TOOLS/truth/240512578_unique.png",
+  "unique_color": "0.8, 0.57, 0.2314",
+  "unique_bright": "0.4",
+  "unique_falloff": "1.057",
+  "artifact_item_path": "D:/GAMES/MarvelHeroesOmega/00_MH_Art_Mods/ITEM/ITEM_EquipmentOutlined/item_artifact04.png",
+  "artifact_gt_path": "D:/GAMES/MarvelHeroesOmega/00_MH_Art_Mods/Z_TOOLS/truth/240520937_artifact.png",
+  "artifact_color": "0.9, 0.2745, 0.1451",
+  "artifact_bright": "0.7",
+  "artifact_falloff": "1.711",
+  "unknown_color": "0.75, 0.1, 0.7",
+  "unknown_bright": "0.8",
+  "unknown_falloff": "1.7",
+  "deduce_bg": true
+}

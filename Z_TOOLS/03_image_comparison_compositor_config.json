@@ -1,0 +1,17 @@
+{
+  "target_dir": "..\\ITEM\\ITEM_ArtifactsArmor\\render",
+  "use_custom_before": false,
+  "custom_before_dir": "",
+  "use_alternate_before": false,
+  "alternate_before_dir": "",
+  "include_originals": true,
+  "png_only": false,
+  "swap_source": false,
+  "matte_black": true,
+  "outer_padding": true,
+  "scale2x": true,
+  "alternate_spacing": false,
+  "vertical_padding": "10",
+  "horizontal_padding": "20",
+  "outer_pad_amount": "32"
+}
