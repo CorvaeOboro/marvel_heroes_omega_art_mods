@@ -1,28 +1,30 @@
 # Marvel Heroes Omega art mods 
 Marvel Heroes Omega fan art client modifications
 
-DOWNLOAD = [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260716.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip )    |    [INSTALL]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install)   | 
+DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip )    |    [INSTALL GUIDE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install) | [SOURCE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip)
+
+[ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip )    | [ITEM_BattleforgedBaubles]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip ) 
 
 
 ## ITEM_DarkRunes
 ![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip)  | Runes of Asgardian magic carved into basalt stone 
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip)  | Runes of Asgardian magic carved into basalt stone 
 
 ## ITEM_UruReForged
 ![ITEM_UruReForged](/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) | Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor
+[DOWNLOAD ( 40px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip) | Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor
 
 ## ITEM_ArtifactsArmor
 ![ITEM_ArtifactsArmor](/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png?raw=true "ITEM_ArtifactsArmor")
 
-[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260716.zip) | ancient Artifacts of powers cosmic awakened Armor enchanted by the techno-logical
+[DOWNLOAD ( 40px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip) | ancient Artifacts of powers cosmic awakened Armor enchanted by the techno-logical
 
 ## ITEM_BattleforgedBaubles
 ![ITEM_BattleforgedBaubles](/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png?raw=true "ITEM_BattleforgedBaubles")
 
-Battleforged Baubles - bionicly built Baubles forged in Battles from the beyond 
+[DOWNLOAD ( 40px ) ](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip) | bionicly built Baubles forged in Battles from the beyond 
 
 ---
 
@@ -51,9 +53,9 @@ Battleforged Baubles - bionicly built Baubles forged in Battles from the beyond
 
 
 # INSTALL
-- install using Krisan Thyme mod manager
-- or alternativley install using the [Omega Asset Studio](https://github.com/TruSkillzzRuns/OmegaAssetStudio) replacing each png in icons
-- or alternatively extract the zip files of the mods and replace the .upk files in the game directory
+-  [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip) the ALL pack preset ( uru 2x , runes 1x , artifacts 2x , baubles 2x , UI NoGlass , PowerNotReady ) 
+- OR choose specific packs between the 2x ( 80px ) or original ( 40px ) sizes ( or create your own using the [mod_selector](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/tree/main/Z_TOOLS/mho_01_mod_selector.py) tool )
+- install the .zip of the TexturePack using Krisan Thyme ModManager
 
 # other resources
 - MHServerEmu modded github = [MHServerEmu](https://github.com/CorvaeOboro/MHServerEmu)

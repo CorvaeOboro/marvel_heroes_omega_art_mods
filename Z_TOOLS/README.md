@@ -13,17 +13,15 @@ This folder contains the Python tooling used to create, compare, convert, and in
 A Tkinter selector that groups related mod folders and lets you choose which folder-level variant to install for each mod.
 
 **Supported variants**
-- `base` - default 1x folder, e.g. `ITEM_ArtifactsArmor`
+- `base` - default 1x 40px folder, e.g. `ITEM_ArtifactsArmor`
 - `_2x` - 80px output folder, e.g. `ITEM_ArtifactsArmor_2x`
-- `_no_outline` - outline-free folder, e.g. `ITEM_ArtifactsArmor_no_outline`
 
 **Workflow**
 1. Select the groups you want.
 2. Pick the variant per group.
-3. Click **Generate Manifests Only** (fast, uses existing `.dds`) or **Export DDS + Manifest** (re-converts sources).
-4. Optionally copy the result to the MHModManager `data/mods` folder.
+3. Click **CREATE ZIP** 
 
-**Presets:** Saves/loads JSON presets to `mho_01_mod_selector_presets/` so configurations can be shared or committed.  Current settings are auto-saved to `mho_01_mod_selector_config.json`.
+**Presets:** Saves/loads JSON presets to `mho_01_mod_selector_presets/` configurations can be shared 
 
 ---
 
@@ -47,9 +45,7 @@ A project overview that scans every `ITEM/<GROUP>` folder and reports, per item,
 - "Create Missing Upscales" batch-copies base PSDs into `upscale/` folders
 - "Generate 2x Folders" creates `<group>_2x` folders with 80px nearest-neighbor PNGs (skips items with PSDs in the 2x folder)
 - Open item in Photoshop / Explorer
-- Preview thumbnails cached in `_preview_cache_mh/`
 
-**Config:** `mho_02_dashboard_settings.json`
 
 ---
 
@@ -62,18 +58,14 @@ The main exporter.  Scans an `ITEM/<GROUP>` folder, converts every PSD or PNG it
 - DDS format: `DXT5`, `BC3_UNORM`, `BC7_UNORM`, `BC7_UNORM_SRGB`, `R8G8B8A8_UNORM`
 - BC quality: `normal` / `max` / `quick`
 - DDS header: `Default` / `Force DX9` / `Force DX10`
-- Mipmaps, premultiply alpha, total-replace on refresh
 - Optional copy to the MHModManager `data/mods` target folder
 
-**Tip:** For the game's older importer, `DXT5` + `Force DX9` is the safest combination.  Use `R8G8B8A8_UNORM` only if compression artifacts are still visible.
-
-**Config:** `mho_03_dds_manifest_config.json`
 
 ---
 
 ### 4. `mho_04_icon_compositor.py` - Batch Item Icon Compositor
 
-Composites 40×40 item PNGs onto a dark background with a tinted radial glow behind them.  Classification is automatic from the filename:
+Composites item PNGs onto a dark background with a tinted radial glow behind them to simulate the in game look for items with variable rarity background colors .   Classification is automatic from the filename:
 
 | Filename contains | Glow color |
 |-------------------|------------|
@@ -86,9 +78,6 @@ Composites 40×40 item PNGs onto a dark background with a tinted radial glow beh
 2. Use **AUTO DEDUCE** to let `scipy` optimize the glow colors, brightness, and falloff to match your ground-truth composites.
 3. Click **RENDER** to batch-process every PNG in the target folder into a `render/` subfolder.
 
-Use this to re-create the standard "item icon look" for many icons at once.
-
-**Config:** `mho_04_icon_compositor_config.json`
 
 ---
 
@@ -104,12 +93,6 @@ Builds a composite image showing original art side-by-side with the modded versi
 - It matches AFTER images in the target folder by filename stem.
 - Optionally drag-and-drop items in the UI to arrange rows.
 - Exports a final `composite.png` in the target folder.
-
-Options include matte-black background, outer padding, 2× nearest-neighbor scaling, and alternate horizontal spacing.
-
-**Config:** `mho_05_comparison_sheet_config.json`
-
-
 
 ---
 
