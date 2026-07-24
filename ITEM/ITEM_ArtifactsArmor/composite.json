@@ -1,0 +1,116 @@
+{
+  "rows": [
+    {
+      "items": [
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact33",
+          "order_index": 0
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact16",
+          "order_index": 1
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact91",
+          "order_index": 2
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact45",
+          "order_index": 3
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_art324",
+          "order_index": 4
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact50",
+          "order_index": 5
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_artifact02",
+          "order_index": 6
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_art323",
+          "order_index": 7
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique246",
+          "order_index": 0
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique203",
+          "order_index": 1
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique213",
+          "order_index": 2
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique305",
+          "order_index": 3
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique211",
+          "order_index": 4
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique177",
+          "order_index": 5
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique227",
+          "order_index": 6
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique191",
+          "order_index": 7
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique333",
+          "order_index": 8
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_unique335",
+          "order_index": 9
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_flaskofachievement",
+          "order_index": 0
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_ketchupbottle",
+          "order_index": 1
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_portaltocowlevel",
+          "order_index": 2
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_portaltodoopzone",
+          "order_index": 3
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_portaltobovineheim",
+          "order_index": 4
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_costumegift_c",
+          "order_index": 5
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_MH_Art_Mods\\ITEM\\ITEM_ArtifactsArmor\\render\\item_login_welcomecase",
+          "order_index": 6
+        }
+      ]
+    }
+  ]
+}

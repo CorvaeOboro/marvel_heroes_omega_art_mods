@@ -1,0 +1,14 @@
+{
+  "texconv_path": "c:/tools/texconv.exe",
+  "author": "CorvaeOboro",
+  "source_mode": "png",
+  "target_folder": "D:\\GAMES\\MarvelHeroesOmega\\MHModManager_v1_0_1\\data\\mods",
+  "export_target": true,
+  "total_replace": true,
+  "dds_format": "DXT5",
+  "bc_quality": "max",
+  "generate_mipmaps": false,
+  "premultiply_alpha": false,
+  "dds_header": "Default",
+  "ignore_00_prefix": true
+}

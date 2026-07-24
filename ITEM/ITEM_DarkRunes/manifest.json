@@ -1,7 +1,7 @@
 {
-  "Name": "DarkRunes",
+  "Name": "ITEM_DarkRunes",
   "Author": "CorvaeOboro",
-  "Version": "20260630",
+  "Version": "20260723",
   "Replacements": [
     {
       "TextureName": "item_ururecipe01",

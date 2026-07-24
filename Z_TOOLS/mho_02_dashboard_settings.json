@@ -1,0 +1,16 @@
+{
+  "excluded_groups": [
+    "ITEM_DarkRunes",
+    "ITEM_Third",
+    "ITEM_DarkRunes_2x",
+    "ITEM_BattleforgedBaubles_2x",
+    "ITEM_UruReForged",
+    "Item_Gift",
+    "ITEM_ArtifactsArmor_2x",
+    "ITEM_ArtifactsArmor",
+    "ITEM_UruReForged_2x",
+    "ITEM_EquipmentOutlined",
+    "ITEM_Artifacts2_2x"
+  ],
+  "photoshop_path": "C:\\Program Files\\Adobe\\Adobe Photoshop 2024\\Photoshop.exe"
+}

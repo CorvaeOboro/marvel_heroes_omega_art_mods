@@ -1,0 +1,114 @@
+{
+  "Name": "ITEM_ArtifactsArmor",
+  "Author": "CorvaeOboro",
+  "Version": "20260724",
+  "Replacements": [
+    {
+      "TextureName": "item_art323",
+      "DdsFileName": "item_art323.dds"
+    },
+    {
+      "TextureName": "item_art324",
+      "DdsFileName": "item_art324.dds"
+    },
+    {
+      "TextureName": "item_artifact02",
+      "DdsFileName": "item_artifact02.dds"
+    },
+    {
+      "TextureName": "item_artifact16",
+      "DdsFileName": "item_artifact16.dds"
+    },
+    {
+      "TextureName": "item_artifact33",
+      "DdsFileName": "item_artifact33.dds"
+    },
+    {
+      "TextureName": "item_artifact45",
+      "DdsFileName": "item_artifact45.dds"
+    },
+    {
+      "TextureName": "item_artifact50",
+      "DdsFileName": "item_artifact50.dds"
+    },
+    {
+      "TextureName": "item_artifact91",
+      "DdsFileName": "item_artifact91.dds"
+    },
+    {
+      "TextureName": "item_costumegift_c",
+      "DdsFileName": "item_costumegift_c.dds"
+    },
+    {
+      "TextureName": "item_flaskofachievement",
+      "DdsFileName": "item_flaskofachievement.dds"
+    },
+    {
+      "TextureName": "item_ketchupbottle",
+      "DdsFileName": "item_ketchupbottle.dds"
+    },
+    {
+      "TextureName": "item_login_welcomecase",
+      "DdsFileName": "item_login_welcomecase.dds"
+    },
+    {
+      "TextureName": "item_portaltobovineheim",
+      "DdsFileName": "item_portaltobovineheim.dds"
+    },
+    {
+      "TextureName": "item_portaltocowlevel",
+      "DdsFileName": "item_portaltocowlevel.dds"
+    },
+    {
+      "TextureName": "item_portaltodoopzone",
+      "DdsFileName": "item_portaltodoopzone.dds"
+    },
+    {
+      "TextureName": "item_unique177",
+      "DdsFileName": "item_unique177.dds"
+    },
+    {
+      "TextureName": "item_unique191",
+      "DdsFileName": "item_unique191.dds"
+    },
+    {
+      "TextureName": "item_unique203",
+      "DdsFileName": "item_unique203.dds"
+    },
+    {
+      "TextureName": "item_unique211",
+      "DdsFileName": "item_unique211.dds"
+    },
+    {
+      "TextureName": "item_unique213",
+      "DdsFileName": "item_unique213.dds"
+    },
+    {
+      "TextureName": "item_unique227",
+      "DdsFileName": "item_unique227.dds"
+    },
+    {
+      "TextureName": "item_unique246",
+      "DdsFileName": "item_unique246.dds"
+    },
+    {
+      "TextureName": "item_unique305",
+      "DdsFileName": "item_unique305.dds"
+    },
+    {
+      "TextureName": "item_unique333",
+      "DdsFileName": "item_unique333.dds"
+    },
+    {
+      "TextureName": "item_unique335",
+      "DdsFileName": "item_unique335.dds"
+    }
+  ],
+  "AchievementReplacements": [],
+  "StoreReplacements": [],
+  "Languages": [],
+  "UpkReplacements": [],
+  "AudioPacks": [],
+  "HasTextures": true,
+  "TextureReplacementCount": 25
+}

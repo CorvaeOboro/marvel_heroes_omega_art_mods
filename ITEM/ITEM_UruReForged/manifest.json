@@ -1,7 +1,7 @@
 {
-  "Name": "UruReForged",
+  "Name": "ITEM_UruReForged",
   "Author": "CorvaeOboro",
-  "Version": "20260630",
+  "Version": "20260723",
   "Replacements": [
     {
       "TextureName": "item_urubase01",

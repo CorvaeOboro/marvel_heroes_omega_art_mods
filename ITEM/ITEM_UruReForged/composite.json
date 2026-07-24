@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "items": [
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase10",
+          "order_index": 0
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase01",
+          "order_index": 1
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase05",
+          "order_index": 2
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase08",
+          "order_index": 3
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase03",
+          "order_index": 4
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase02",
+          "order_index": 5
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase06",
+          "order_index": 0
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase07",
+          "order_index": 1
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase09",
+          "order_index": 2
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase11",
+          "order_index": 3
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase12",
+          "order_index": 4
+        },
+        {
+          "hex_id": "D:\\GAMES\\MarvelHeroesOmega\\00_TEXTURES\\ITEM\\ITEM_UruReForged\\item_urubase04",
+          "order_index": 5
+        }
+      ]
+    }
+  ]
+}
