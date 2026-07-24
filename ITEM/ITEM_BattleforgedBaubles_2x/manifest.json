@@ -1,0 +1,210 @@
+{
+  "Name": "ITEM_BattleforgedBaubles_2x",
+  "Author": "CorvaeOboro",
+  "Version": "20260724",
+  "Replacements": [
+    {
+      "TextureName": "armor_ghostrider_chain",
+      "DdsFileName": "armor_ghostrider_chain.dds"
+    },
+    {
+      "TextureName": "armor_stamina",
+      "DdsFileName": "armor_stamina.dds"
+    },
+    {
+      "TextureName": "artifact_cupidsarrow",
+      "DdsFileName": "artifact_cupidsarrow.dds"
+    },
+    {
+      "TextureName": "item_addchallengebonus",
+      "DdsFileName": "item_addchallengebonus.dds"
+    },
+    {
+      "TextureName": "item_addspecificchallengebonus",
+      "DdsFileName": "item_addspecificchallengebonus.dds"
+    },
+    {
+      "TextureName": "item_artifact04",
+      "DdsFileName": "item_artifact04.dds"
+    },
+    {
+      "TextureName": "item_artifact051",
+      "DdsFileName": "item_artifact051.dds"
+    },
+    {
+      "TextureName": "item_artifact054",
+      "DdsFileName": "item_artifact054.dds"
+    },
+    {
+      "TextureName": "item_artifact078",
+      "DdsFileName": "item_artifact078.dds"
+    },
+    {
+      "TextureName": "item_artifact094",
+      "DdsFileName": "item_artifact094.dds"
+    },
+    {
+      "TextureName": "item_artifact15",
+      "DdsFileName": "item_artifact15.dds"
+    },
+    {
+      "TextureName": "item_artifact21",
+      "DdsFileName": "item_artifact21.dds"
+    },
+    {
+      "TextureName": "item_artifact22",
+      "DdsFileName": "item_artifact22.dds"
+    },
+    {
+      "TextureName": "item_artifact221",
+      "DdsFileName": "item_artifact221.dds"
+    },
+    {
+      "TextureName": "item_artifact224",
+      "DdsFileName": "item_artifact224.dds"
+    },
+    {
+      "TextureName": "item_artifact240",
+      "DdsFileName": "item_artifact240.dds"
+    },
+    {
+      "TextureName": "item_artifact243",
+      "DdsFileName": "item_artifact243.dds"
+    },
+    {
+      "TextureName": "item_artifact256",
+      "DdsFileName": "item_artifact256.dds"
+    },
+    {
+      "TextureName": "item_artifact262",
+      "DdsFileName": "item_artifact262.dds"
+    },
+    {
+      "TextureName": "item_artifact27",
+      "DdsFileName": "item_artifact27.dds"
+    },
+    {
+      "TextureName": "item_artifact48",
+      "DdsFileName": "item_artifact48.dds"
+    },
+    {
+      "TextureName": "item_artifact51",
+      "DdsFileName": "item_artifact51.dds"
+    },
+    {
+      "TextureName": "item_artifact52",
+      "DdsFileName": "item_artifact52.dds"
+    },
+    {
+      "TextureName": "item_artifact53",
+      "DdsFileName": "item_artifact53.dds"
+    },
+    {
+      "TextureName": "item_artifact54",
+      "DdsFileName": "item_artifact54.dds"
+    },
+    {
+      "TextureName": "item_artifact86",
+      "DdsFileName": "item_artifact86.dds"
+    },
+    {
+      "TextureName": "item_dawsoncap",
+      "DdsFileName": "item_dawsoncap.dds"
+    },
+    {
+      "TextureName": "item_goldconduit",
+      "DdsFileName": "item_goldconduit.dds"
+    },
+    {
+      "TextureName": "item_mission_biomass",
+      "DdsFileName": "item_mission_biomass.dds"
+    },
+    {
+      "TextureName": "item_ordersfromthehand",
+      "DdsFileName": "item_ordersfromthehand.dds"
+    },
+    {
+      "TextureName": "item_teaminsigniaavengers",
+      "DdsFileName": "item_teaminsigniaavengers.dds"
+    },
+    {
+      "TextureName": "item_teaminsigniadefenders",
+      "DdsFileName": "item_teaminsigniadefenders.dds"
+    },
+    {
+      "TextureName": "item_teaminsigniafantasticfour",
+      "DdsFileName": "item_teaminsigniafantasticfour.dds"
+    },
+    {
+      "TextureName": "item_teaminsigniashield",
+      "DdsFileName": "item_teaminsigniashield.dds"
+    },
+    {
+      "TextureName": "item_teaminsigniaxmen",
+      "DdsFileName": "item_teaminsigniaxmen.dds"
+    },
+    {
+      "TextureName": "item_unique051",
+      "DdsFileName": "item_unique051.dds"
+    },
+    {
+      "TextureName": "item_unique174",
+      "DdsFileName": "item_unique174.dds"
+    },
+    {
+      "TextureName": "item_unique181",
+      "DdsFileName": "item_unique181.dds"
+    },
+    {
+      "TextureName": "item_unique183",
+      "DdsFileName": "item_unique183.dds"
+    },
+    {
+      "TextureName": "item_unique190",
+      "DdsFileName": "item_unique190.dds"
+    },
+    {
+      "TextureName": "item_unique207",
+      "DdsFileName": "item_unique207.dds"
+    },
+    {
+      "TextureName": "item_unique209",
+      "DdsFileName": "item_unique209.dds"
+    },
+    {
+      "TextureName": "item_unique210",
+      "DdsFileName": "item_unique210.dds"
+    },
+    {
+      "TextureName": "item_unique248",
+      "DdsFileName": "item_unique248.dds"
+    },
+    {
+      "TextureName": "item_unique249",
+      "DdsFileName": "item_unique249.dds"
+    },
+    {
+      "TextureName": "item_unique267",
+      "DdsFileName": "item_unique267.dds"
+    },
+    {
+      "TextureName": "item_unique270",
+      "DdsFileName": "item_unique270.dds"
+    },
+    {
+      "TextureName": "item_unique351",
+      "DdsFileName": "item_unique351.dds"
+    },
+    {
+      "TextureName": "relic_petdamage",
+      "DdsFileName": "relic_petdamage.dds"
+    }
+  ],
+  "AchievementReplacements": [],
+  "StoreReplacements": [],
+  "Languages": [],
+  "UpkReplacements": [],
+  "AudioPacks": [],
+  "HasTextures": true,
+  "TextureReplacementCount": 49
+}

@@ -1,0 +1,50 @@
+{
+  "eng.all_3FFFFFFFFFFFFFFF.string": {
+    "484996091518715198": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    },
+    "2201086116071343363": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    },
+    "2904019005173597500": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    },
+    "3152272457036793101": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    }
+  },
+  "eng.all_7FFFFFFFFFFFFFFF.string": {
+    "5347908306241783053": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    },
+    "6314264707972531518": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    }
+  },
+  "eng.all_BFFFFFFFFFFFFFFF.string": {
+    "13079208163413198184": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    }
+  },
+  "eng.all_FFFFFFFFFFFFFFFF.string": {
+    "17448350502282396943": {
+      "Variants": [],
+      "FlagsProduced": 0,
+      "String": " "
+    }
+  }
+}

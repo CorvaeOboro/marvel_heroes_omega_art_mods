@@ -1,0 +1,15 @@
+{
+  "Name": "PowerNotReady_removal",
+  "Author": "CorvaeOboro",
+  "Version": "1.0",
+  "Replacements": [],
+  "AchievementReplacements": [],
+  "StoreReplacements": [],
+  "Languages": [
+    "eng"
+  ],
+  "UpkReplacements": [],
+  "AudioPacks": [],
+  "HasStrings": true,
+  "Type": 1
+}
