@@ -8,6 +8,8 @@ This folder contains the Python tooling used to create, compare, convert, and in
 
 ### 1. `mho_01_mod_selector.py` - Variant-Aware Mod Selector / Installer
 
+![mho_01_mod_selector](mho_01_mod_selector.png)
+
 A Tkinter selector that groups related mod folders and lets you choose which folder-level variant to install for each mod.
 
 **Supported variants**
@@ -26,6 +28,8 @@ A Tkinter selector that groups related mod folders and lets you choose which fol
 ---
 
 ### 2. `mho_02_dashboard.py` - Art Mod Progress Dashboard
+
+![mho_02_dashboard](mho_02_dashboard.png)
 
 A project overview that scans every `ITEM/<GROUP>` folder and reports, per item, which assets exist:
 
@@ -90,6 +94,8 @@ Use this to re-create the standard "item icon look" for many icons at once.
 
 ### 5. `mho_05_comparison_sheet.py` - Before / After Comparison Sheet
 
+![mho_05_comparison_sheet](mho_05_comparison_sheet.png)
+
 Builds a composite image showing original art side-by-side with the modded version.
 
 **How it works**
@@ -116,8 +122,6 @@ Options include matte-black background, outer padding, 2× nearest-neighbor scal
 | `mho_03_dds_manifest_config.json` | `mho_03_dds_manifest.py` | texconv path, author, DDS settings, target folder |
 | `mho_04_icon_compositor_config.json` | `mho_04_icon_compositor.py` | Target, mask, reference pairs, colors |
 | `mho_05_comparison_sheet_config.json` | `mho_05_comparison_sheet.py` | Folder paths, padding, layout options |
-| `mho_06_dds_lab_config.json` | `mho_06_dds_lab.py` | Source image, texconv path, DDS settings |
-| `mho_07_texconv_gui_config.json` | `mho_07_texconv_gui.py` | texconv path, per-file format presets |
 
 ---
 

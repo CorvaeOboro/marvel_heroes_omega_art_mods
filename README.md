@@ -5,12 +5,12 @@ DOWNLOAD = [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marve
 
 
 ## ITEM_DarkRunes
-![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
+![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260630.zip)  | Runes of Asgardian magic carved into basalt stone 
 
 ## ITEM_UruReForged
-![ITEM_UruReForged](/ITEM/ITEM_UruReForged/ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
+![ITEM_UruReForged](/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) | Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor
 
@@ -18,6 +18,13 @@ DOWNLOAD = [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marve
 ![ITEM_ArtifactsArmor](/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png?raw=true "ITEM_ArtifactsArmor")
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260716.zip) | ancient Artifacts of powers cosmic awakened Armor enchanted by the techno-logical
+
+## ITEM_BattleforgedBaubles
+![ITEM_BattleforgedBaubles](/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png?raw=true "ITEM_BattleforgedBaubles")
+
+Battleforged Baubles - bionicly built Baubles forged in Battles from the beyond 
+
+---
 
 ## UI_Item_NoGlassOverlay
 ![UI_Item_NoGlassOverlay](/UI/UI_Item_NoGlassOverlay_compare.webp?raw=true "UI_Item_NoGlassOverlay")
