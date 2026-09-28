@@ -6,3 +6,14 @@
 **/temp/**
 **/remove/**
 *.psd
+ITEM/ITEM_BattleforgedBaubles/render/
+ITEM/ITEM_ArtifactsArmor/render/
+Z_TOOLS/truth/
+Z_TOOLS/test/
+Z_TOOLS/__pycache__/
+Z_TOOLS/_preview_cache_mh/
+ITEM/ITEM_ArtifactsArmor_2x/rock/
+ITEM/ITEM_ArtifactsArmor_2x/render/
+ITEM/ITEM_BattleforgedBaubles_2x/render/
+png_to_dds_manifest.py
+00_psd_to_png.py

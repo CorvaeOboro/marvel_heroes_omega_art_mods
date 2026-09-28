@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marvel Heroes Omega - Dark Runes</title>
+<style>
+:root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --border: #2a2a2a;
+    --text: #e0e0e0;
+    --muted: #999;
+    --accent: #4a7fb5;
+    --link: #64b5f6;
+    --code: #1e1e1e;
+}
+* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+.page { display: flex; height: 100vh; }
+.sidebar {
+    width: 12%;
+    min-width: 160px;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+}
+.sidebar iframe { width: 100%; height: 100%; border: none; }
+.content {
+    flex: 1;
+    overflow-y: auto;
+}
+header {
+    background: linear-gradient(90deg, #0a1520 0%, #0d0d0d 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+header h1 { margin: 0; font-size: 2rem; color: #fff; }
+header p { margin: 0.5rem 0 0; color: var(--muted); }
+.container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem; }
+h2 { color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; font-size: 1.4rem; }
+h3 { color: #fff; margin-top: 1.5rem; font-size: 1.1rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.4rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: var(--surface); color: #fff; }
+td { background: #111; }
+code, pre {
+    background: var(--code);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+code { padding: 0.15rem 0.35rem; }
+pre { padding: 0.8rem; overflow-x: auto; }
+.note {
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+}
+footer { text-align: center; padding: 1.2rem 1rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+.container img { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.95); cursor: zoom-out; padding: 2rem; }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="sidebar">
+        <iframe src="../marvel_heroes_menu.html"></iframe>
+    </div>
+    <div class="content">
+
+<header>
+    <h1>Dark Runes</h1>
+    <p>ITEM_DarkRunes</p>
+</header>
+
+<div class="container">
+
+<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png" alt="Dark Runes" style="display:block; max-width:100%; margin:0 auto 1.5rem; border:1px solid var(--border);">
+<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes_compare.webp" alt="Dark Runes comparison" style="display:block; max-width:100%; margin:0 auto 1.5rem; border:1px solid var(--border);">
+
+<p>Runes of Asgardian magic carved into basalt stone. Dark-themed replacements for rune item icons.</p>
+
+<h2>Download</h2>
+<ul>
+    <li><a href="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip">Download Dark Runes</a> - original (40px icons)</li>
+</ul>
+
+<h2>Install</h2>
+
+<ul>
+    <li>Install with the Krisan Thyme mod manager, <strong>or</strong></li>
+   
+</ul>
+
+
+</div>
+<footer><p> </p></footer>
+</div>
+</div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" alt=""></div>
+<script>
+(function() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.container img').forEach(function(img) {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+        });
+    });
+    lightbox.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+})();
+</script>
+</body>
+</html>

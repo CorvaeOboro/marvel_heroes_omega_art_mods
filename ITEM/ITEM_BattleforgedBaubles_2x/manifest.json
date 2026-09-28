@@ -1,7 +1,7 @@
 {
   "Name": "ITEM_BattleforgedBaubles_2x",
   "Author": "CorvaeOboro",
-  "Version": "20260724",
+  "Version": "20260730",
   "Replacements": [
     {
       "TextureName": "armor_ghostrider_chain",

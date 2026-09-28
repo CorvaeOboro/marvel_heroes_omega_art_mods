@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marvel Heroes Omega - Z_TOOLS Toolchain</title>
+<style>
+:root { --bg:#0d0d0d; --surface:#141414; --border:#2a2a2a; --text:#e0e0e0; --muted:#999; --accent:#4a7fb5; --link:#64b5f6; --code:#1e1e1e; }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+.page { display:flex; height:100vh; }
+.sidebar { width:12%; min-width:160px; border-right:1px solid var(--border); background:var(--bg); }
+.sidebar iframe { width:100%; height:100%; border:none; }
+.content { flex:1; overflow-y:auto; }
+header { background:linear-gradient(90deg,#0a1520 0%,#0d0d0d 100%); border-bottom:2px solid var(--accent); padding:1.2rem 1rem; text-align:center; }
+header h1 { margin:0; font-size:2rem; color:#fff; }
+header p { margin:0.5rem 0 0; color:var(--muted); }
+.container { max-width:1000px; margin:0 auto; padding:2rem 1.5rem; }
+h2 { color:#fff; border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-top:2.5rem; font-size:1.4rem; }
+h3 { color:#fff; margin-top:1.5rem; font-size:1.1rem; }
+h4 { color:var(--accent); margin-top:1.2rem; font-size:1rem; }
+a { color:var(--link); text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left:1.4rem; }
+li { margin-bottom:0.4rem; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; }
+th, td { border:1px solid var(--border); padding:0.5rem 0.7rem; text-align:left; }
+th { background:var(--surface); color:#fff; }
+td { background:#111; }
+code, pre { background:var(--code); border:1px solid var(--border); border-radius:4px; font-family:Consolas,Monaco,'Courier New',monospace; font-size:0.9rem; }
+code { padding:0.15rem 0.35rem; }
+pre { padding:0.8rem; overflow-x:auto; }
+.note { border-left:3px solid var(--accent); background:var(--surface); padding:0.8rem 1rem; margin:1rem 0; border-radius:0 6px 6px 0; }
+footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0.9rem; border-top:1px solid var(--border); margin-top:3rem; }
+.container img { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.95); cursor: zoom-out; padding: 2rem; }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="sidebar"><iframe src="../marvel_heroes_menu.html"></iframe></div>
+    <div class="content">
+
+<header>
+    <h1>Z_TOOLS Toolchain</h1>
+    <p>Python tooling for creating, comparing, converting, and installing art mods</p>
+</header>
+
+<div class="container">
+
+<p>The <code>Z_TOOLS</code> folder contains the Python tooling used to create, compare, convert, and install the icon/texture art mods in this repo. Each script is self-contained.</p>
+
+<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/Z_TOOLS/mho_01_mod_selector.png" alt="Mod Selector" style="display:block; max-width:100%; margin:1.5rem auto; border:1px solid var(--border);">
+
+<h2>1. mho_01_mod_selector.py - Variant-Aware Mod Selector / Installer</h2>
+
+<p>A Tkinter selector that groups related mod folders and lets you choose which folder-level variant to install for each mod.</p>
+
+<h4>Supported variants</h4>
+<ul>
+    <li><code>base</code> - default 1x 40px folder, e.g. <code>ITEM_ArtifactsArmor</code></li>
+    <li><code>_2x</code> - 80px output folder, e.g. <code>ITEM_ArtifactsArmor_2x</code></li>
+</ul>
+
+<h4>Workflow</h4>
+<ol>
+    <li>Select the groups you want.</li>
+    <li>Pick the variant per group.</li>
+    <li>Click <strong>CREATE ZIP</strong></li>
+</ol>
+
+<div class="note"><strong>Presets:</strong> Saves/loads JSON presets to <code>mho_01_mod_selector_presets/</code> - configurations can be shared.</div>
+
+<h2>2. mho_02_dashboard.py - Art Mod Progress Dashboard</h2>
+
+<p>A project overview that scans every <code>ITEM/<GROUP></code> folder and reports, per item, which assets exist:</p>
+<ul>
+    <li>Base PSD source</li>
+    <li>Base PNG export</li>
+    <li>Base DDS conversion</li>
+    <li>Upscale PSD / Upscale PNG</li>
+    <li>Reference images</li>
+    <li><code>APPROVED::</code> flag from the item's markdown metadata</li>
+</ul>
+
+<h4>Features</h4>
+<ul>
+    <li>Thumbnail grid with color-coded status blocks</li>
+    <li>Group filter buttons (left-click toggle, right-click solo)</li>
+    <li>Spreadsheet mode for a compact table view</li>
+    <li>"Create Missing Upscales" batch-copies base PSDs into <code>upscale/</code> folders</li>
+    <li>"Generate 2x Folders" creates <code><group>_2x</code> folders with 80px nearest-neighbor PNGs (skips items with PSDs in the 2x folder)</li>
+    <li>Open item in Photoshop / Explorer</li>
+</ul>
+
+<h2>3. mho_03_dds_manifest.py - Batch PSD/PNG -> DDS + Manifest</h2>
+
+<p>The main exporter. Scans an <code>ITEM/<GROUP></code> folder, converts every PSD or PNG it finds into a DDS texture, and writes a <code>manifest.json</code> that Marvel Mod Manager / the game understands.</p>
+
+<h4>Key options</h4>
+<ul>
+    <li>Source mode: PNG or PSD</li>
+    <li>DDS format: <code>DXT5</code>, <code>BC3_UNORM</code>, <code>BC7_UNORM</code>, <code>BC7_UNORM_SRGB</code>, <code>R8G8B8A8_UNORM</code></li>
+    <li>BC quality: <code>normal</code> / <code>max</code> / <code>quick</code></li>
+    <li>DDS header: <code>Default</code> / <code>Force DX9</code> / <code>Force DX10</code></li>
+    <li>Optional copy to the MHModManager <code>data/mods</code> target folder</li>
+</ul>
+
+<h2>4. mho_04_icon_compositor.py - Batch Item Icon Compositor</h2>
+
+<p>Composites item PNGs onto a dark background with a tinted radial glow behind them to simulate the in-game look for items with variable rarity background colors. Classification is automatic from the filename:</p>
+
+<table>
+    <tr><th>Filename contains</th><th>Glow color</th></tr>
+    <tr><td><code>unique</code></td><td>yellow/gold</td></tr>
+    <tr><td><code>artifact</code> / <code>item_art</code></td><td>orange</td></tr>
+    <tr><td>anything else</td><td>purple</td></tr>
+</table>
+
+<h4>Workflow</h4>
+<ol>
+    <li>Set the <code>TARGET</code> folder, a radial mask image, background color, and reference pairs (one UNIQUE, one ARTIFACT).</li>
+    <li>Use <strong>AUTO DEDUCE</strong> to let <code>scipy</code> optimize the glow colors, brightness, and falloff to match your ground-truth composites.</li>
+    <li>Click <strong>RENDER</strong> to batch-process every PNG in the target folder into a <code>render/</code> subfolder.</li>
+</ol>
+
+<h2>5. mho_05_comparison_sheet.py - Before / After Comparison Sheet</h2>
+
+<p>Builds a composite image showing original art side-by-side with the modded version.</p>
+
+<h4>How it works</h4>
+<ul>
+    <li>Point it at a mod folder (<code>TARGET</code>).</li>
+    <li>It looks for BEFORE images in a <code>backup/</code> or <code>original/</code> subfolder, or in a custom BEFORE folder.</li>
+    <li>It matches AFTER images in the target folder by filename stem.</li>
+    <li>Optionally drag-and-drop items in the UI to arrange rows.</li>
+    <li>Exports a final <code>composite.png</code> in the target folder.</li>
+</ul>
+
+<h2>Configuration Files</h2>
+
+<table>
+    <tr><th>File</th><th>Owned by</th><th>Purpose</th></tr>
+    <tr><td><code>mho_01_mod_selector_config.json</code></td><td><code>mho_01_mod_selector.py</code></td><td>Last-used settings and selections</td></tr>
+    <tr><td><code>mho_02_dashboard_settings.json</code></td><td><code>mho_02_dashboard.py</code></td><td>UI layout, filters, Photoshop path</td></tr>
+    <tr><td><code>mho_03_dds_manifest_config.json</code></td><td><code>mho_03_dds_manifest.py</code></td><td>texconv path, author, DDS settings, target folder</td></tr>
+    <tr><td><code>mho_04_icon_compositor_config.json</code></td><td><code>mho_04_icon_compositor.py</code></td><td>Target, mask, reference pairs, colors</td></tr>
+    <tr><td><code>mho_05_comparison_sheet_config.json</code></td><td><code>mho_05_comparison_sheet.py</code></td><td>Folder paths, padding, layout options</td></tr>
+</table>
+
+<h2>Common Conventions</h2>
+<ul>
+    <li><strong>Source folders</strong> are under <code>../ITEM</code> relative to the <code>Z_TOOLS</code> directory.</li>
+    <li><strong>Items starting with <code>00_</code></strong> are composites, references, or group thumbnails, not individual mod items, and are ignored by the exporters.</li>
+    <li><strong>Upscale folders</strong> (<code>upscale/</code> or <code>Upscale/</code> inside a group) hold the 1024x1024 working files. They are <em>not</em> the final 2x output; the final <code>_2x</code> variant lives at the <code>ITEM_<Name>_2x</code> folder level.</li>
+    <li><strong>DDS output</strong> is written next to its source file and referenced by <code>manifest.json</code>.</li>
+</ul>
+
+<p>See the full source in the <a href="https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/tree/main/Z_TOOLS" target="_blank">Z_TOOLS folder</a> on GitHub.</p>
+
+</div>
+<footer><p> </p></footer>
+</div>
+</div>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" alt=""></div>
+<script>
+(function() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.container img').forEach(function(img) {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+        });
+    });
+    lightbox.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+})();
+</script>
+</body>
+</html>
