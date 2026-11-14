@@ -323,7 +323,7 @@ def find_matching_triplets(target_folder, custom_before_folder=None, alternate_b
                 print(f"DEBUG: No BEFORE match for AFTER image: {af} (key: {key})")
     return triplets, stats
 
-def create_vertical_composite(before_img, after_img, alternate_before_img=None, vertical_padding=VERTICAL_PADDING, swap_source=False):
+def create_vertical_composite(before_img, after_img, alternate_before_img=None, vertical_padding=VERTICAL_PADDING, swap_source=False, webp_layer=None):
     """
     Create a vertical composite from before and after images (and optional alternate before).
     If swap_source is True, AFTER is placed at the top and BEFORE at the bottom.
@@ -351,6 +351,14 @@ def create_vertical_composite(before_img, after_img, alternate_before_img=None, 
     after_img = after_img.crop(after_bbox)
     if alternate_before_img:
         alternate_before_img = alternate_before_img.crop(alt_before_bbox)
+    
+    # WebP layer mode: replace non-shown images with transparent placeholders of same size
+    if webp_layer == "source":
+        before_img = Image.new('RGBA', before_img.size, (0, 0, 0, 0))
+        if alternate_before_img:
+            alternate_before_img = Image.new('RGBA', alternate_before_img.size, (0, 0, 0, 0))
+    elif webp_layer == "original":
+        after_img = Image.new('RGBA', after_img.size, (0, 0, 0, 0))
     
     # Calculate dimensions
     max_width = max(before_img.width, after_img.width)
@@ -461,7 +469,129 @@ def _build_row_image(row_verticals, horizontal_padding, alternate_spacing, max_r
     return row_img
 
 
-def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizontal_padding=HORIZONTAL_PADDING, composite_config=None, include_originals=True, matte_black=False, outer_padding=False, scale2x=False, outer_pad_amt=DEFAULT_OUTER_PAD, alternate_spacing=False, swap_source=False):
+def create_webp_composite(triplets, composite_config=None, horizontal_padding=HORIZONTAL_PADDING, vertical_padding=VERTICAL_PADDING, matte_black=False, outer_padding=False, scale2x=False, outer_pad_amt=DEFAULT_OUTER_PAD, alternate_spacing=False):
+    """Create two composites for animated WebP: source (AFTER) and original (BEFORE).
+    Both frames have identical dimensions and item positions - only the image content differs.
+    Each item's BEFORE and AFTER are cropped to a union bounding box and placed at the same location."""
+    if composite_config and "rows" in composite_config:
+        key_to_triplet = {get_match_key(after_path): triplet for triplet in triplets
+                         for _, _, after_path in [triplet]}
+        rows = []
+        for row in composite_config["rows"]:
+            row_triplets = []
+            for item in row["items"]:
+                key = _get_config_match_key(item)
+                if key in key_to_triplet:
+                    row_triplets.append(key_to_triplet[key])
+            if row_triplets:
+                rows.append(row_triplets)
+    else:
+        rows = [triplets]
+
+    if not rows:
+        return None, None
+
+    def _load_and_crop(triplet):
+        """Load BEFORE and AFTER, crop both to union content bbox. Returns (before_cropped, after_cropped)."""
+        before_path, _, after_path = triplet
+        before_img = Image.open(before_path).convert('RGBA') if before_path and os.path.exists(before_path) else None
+        after_img = Image.open(after_path).convert('RGBA') if after_path and os.path.exists(after_path) else None
+        if not before_img or not after_img:
+            return None, None
+
+        before_bbox = get_content_bbox(before_img)
+        after_bbox = get_content_bbox(after_img)
+        union_bbox = (
+            min(before_bbox[0], after_bbox[0]),
+            min(before_bbox[1], after_bbox[1]),
+            max(before_bbox[2], after_bbox[2]),
+            max(before_bbox[3], after_bbox[3]),
+        )
+        before_cropped = before_img.crop(union_bbox)
+        after_cropped = after_img.crop(union_bbox)
+        return before_cropped, after_cropped
+
+    # Build rows of single images for each frame
+    source_row_images = []
+    original_row_images = []
+
+    for row_triplets in rows:
+        source_items = []
+        original_items = []
+        for triplet in row_triplets:
+            before_cropped, after_cropped = _load_and_crop(triplet)
+            if before_cropped is None:
+                continue
+            source_items.append(after_cropped)
+            original_items.append(before_cropped)
+
+        if not source_items:
+            continue
+
+        # Determine max row width for alternate spacing
+        if alternate_spacing:
+            max_row_width = max(
+                sum(img.width for img in row_v) + horizontal_padding * (len(row_v) - 1)
+                for row_v in (source_items, original_items)
+            ) if len(rows) > 1 else (
+                sum(img.width for img in source_items)
+            )
+        else:
+            max_row_width = None
+
+        source_row = _build_row_image(source_items, horizontal_padding, alternate_spacing, max_row_width)
+        original_row = _build_row_image(original_items, horizontal_padding, alternate_spacing, max_row_width)
+        if source_row and original_row:
+            source_row_images.append(source_row)
+            original_row_images.append(original_row)
+
+    if not source_row_images:
+        return None, None
+
+    # Assemble rows into final composites
+    max_width = max(img.width for img in source_row_images)
+    total_height = -vertical_padding
+    for img in source_row_images:
+        total_height += img.height + vertical_padding
+
+    def _assemble(row_images, w, h):
+        composite = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+        y = 0
+        for row_img in row_images:
+            x = (w - row_img.width) // 2
+            composite.paste(row_img, (x, y), row_img)
+            y += row_img.height + vertical_padding
+        return composite
+
+    source_composite = _assemble(source_row_images, max_width, total_height)
+    original_composite = _assemble(original_row_images, max_width, total_height)
+
+    # Apply output options to both
+    source_composite = _apply_output_options(source_composite, matte_black, outer_padding, outer_pad_amt, scale2x)
+    original_composite = _apply_output_options(original_composite, matte_black, outer_padding, outer_pad_amt, scale2x)
+
+    # Ensure identical final dimensions
+    max_w = max(source_composite.width, original_composite.width)
+    max_h = max(source_composite.height, original_composite.height)
+
+    def _pad_to_size(img, w, h):
+        if img.size == (w, h):
+            return img
+        if img.mode == 'RGB':
+            result = Image.new('RGB', (w, h), (0, 0, 0))
+            result.paste(img, ((w - img.width) // 2, (h - img.height) // 2))
+        else:
+            result = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+            result.paste(img, ((w - img.width) // 2, (h - img.height) // 2), img)
+        return result
+
+    source_composite = _pad_to_size(source_composite, max_w, max_h)
+    original_composite = _pad_to_size(original_composite, max_w, max_h)
+
+    return source_composite, original_composite
+
+
+def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizontal_padding=HORIZONTAL_PADDING, composite_config=None, include_originals=True, matte_black=False, outer_padding=False, scale2x=False, outer_pad_amt=DEFAULT_OUTER_PAD, alternate_spacing=False, swap_source=False, webp_layer=None):
     """
     Create the final composite image from the given triplets.
     If composite_config is provided, it will be used to arrange the triplets in rows.
@@ -530,7 +660,7 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
                         print(f"    Loaded ALTERNATE BEFORE from: {alt_before_path}")
                     
                     # If not including originals, blank the appropriate image
-                    if not include_originals:
+                    if not include_originals and not webp_layer:
                         if swap_source:
                             # Show original (BEFORE), blank source (AFTER)
                             after_img = Image.new("RGBA", (1, 1), (0,0,0,0))
@@ -540,7 +670,7 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
                             before_img = Image.new("RGBA", (1, 1), (0,0,0,0))
                             print("    Blanked BEFORE (include_originals=False)")
                     
-                    vertical = create_vertical_composite(before_img, after_img, alternate_before_img, vertical_padding, swap_source=swap_source)
+                    vertical = create_vertical_composite(before_img, after_img, alternate_before_img, vertical_padding, swap_source=swap_source, webp_layer=webp_layer)
                     print(f"    Created vertical composite: {vertical.size}")
                     
                     row_verticals.append(vertical)
@@ -603,9 +733,9 @@ def create_final_composite(triplets, vertical_padding=VERTICAL_PADDING, horizont
     else:
         print("DEBUG: No composite configuration provided, creating single column layout")
         # Create vertical layout (existing code for backward compatibility)
-        return create_single_column_composite(triplets, vertical_padding, horizontal_padding, swap_source=swap_source)
+        return create_single_column_composite(triplets, vertical_padding, horizontal_padding, swap_source=swap_source, webp_layer=webp_layer)
 
-def create_single_column_composite(triplets, vertical_padding, horizontal_padding, swap_source=False):
+def create_single_column_composite(triplets, vertical_padding, horizontal_padding, swap_source=False, webp_layer=None):
     """Helper function to create a single-column composite (old style)"""
     print("\nDEBUG: Creating single-column composite")
     verticals = []
@@ -624,7 +754,7 @@ def create_single_column_composite(triplets, vertical_padding, horizontal_paddin
             # Note: single-column composite path doesn't support include_originals
             # It's only used when no composite_config is provided
             
-            vertical = create_vertical_composite(before_img, after_img, alt_before_img, vertical_padding, swap_source=swap_source)
+            vertical = create_vertical_composite(before_img, after_img, alt_before_img, vertical_padding, swap_source=swap_source, webp_layer=webp_layer)
             print(f"    Created vertical composite: {vertical.size}")
             
             verticals.append(vertical)
@@ -1029,6 +1159,9 @@ class CompositeArrangementUI:
                              activeforeground=WHITE)
         generate_btn.pack(side=tk.LEFT, padx=5)
         generate_btn.configure(relief=tk.RAISED, borderwidth=2)
+        tk.Button(buttons_frame, text="Generate Animated WebP", command=self.generate_animated_webp,
+                 bg=MUTED_BLUE, fg=WHITE, activebackground=MUTED_BLUE,
+                 activeforeground=WHITE).pack(side=tk.LEFT, padx=5)
 
         # Bind target-entry events to refresh the UI
         self.target_entry.bind("<Return>", self.on_target_changed)
@@ -1525,6 +1658,105 @@ class CompositeArrangementUI:
         else:
             messagebox.showerror("Error", "Failed to create composite image")
 
+        save_config(self.collect_config())
+
+    def generate_animated_webp(self):
+        """Generate an animated WebP that toggles between source (AFTER) and original (BEFORE).
+        Both frames use identical layout - BEFORE and AFTER are cropped to a union bounding box
+        and placed at the same position, so only content changes, not position.
+        Frame sequence: source 1ms, source 2000ms, original 2000ms, looping forever."""
+        if not self.triplets:
+            messagebox.showerror("Error", "No images to arrange")
+            return
+        config = self.generate_composite_config()
+        target = self.target_entry.get().strip()
+        if not target:
+            messagebox.showerror("Error", "No target folder specified")
+            return
+        custom_before = self.custom_before_entry.get().strip() if self.use_custom_before.get() else None
+        alt_before = self.alt_before_entry.get().strip() if self.use_alternate_before.get() else None
+        png_only = self.use_png_only.get()
+
+        # Get paddings from UI
+        try:
+            vertical_padding = int(self.vert_pad_var.get())
+        except Exception:
+            vertical_padding = VERTICAL_PADDING
+        try:
+            horizontal_padding = int(self.horiz_pad_var.get())
+        except Exception:
+            horizontal_padding = HORIZONTAL_PADDING
+
+        # Output options (applied to both frames for consistency)
+        matte_black = self.matte_black_var.get()
+        outer_padding = self.outer_padding_var.get()
+        scale2x = self.scale2x_var.get()
+        try:
+            outer_pad_amt = int(self.outer_pad_amt_var.get())
+        except Exception:
+            outer_pad_amt = DEFAULT_OUTER_PAD
+        alternate_spacing = self.alternate_spacing_var.get()
+
+        # Find and reorder triplets
+        triplets, stats = find_matching_triplets(target, custom_before, alt_before, png_only=png_only)
+        if not triplets:
+            messagebox.showerror("Error", "No matching image triplets found")
+            return
+
+        if config and "rows" in config:
+            ordered_triplets = []
+            key_to_triplet = {get_match_key(after_path): triplet for triplet in triplets
+                             for _, _, after_path in [triplet]}
+            for row in config["rows"]:
+                for item in row["items"]:
+                    key = _get_config_match_key(item)
+                    if key in key_to_triplet:
+                        ordered_triplets.append(key_to_triplet[key])
+            config_keys = {_get_config_match_key(item) for row in config["rows"] for item in row["items"]}
+            remaining = [t for t in triplets if get_match_key(t[2]) not in config_keys]
+            triplets = ordered_triplets + remaining
+
+        # Generate both frames with identical layout (union bbox per item)
+        print("DEBUG: [WebP] Generating source and original frames")
+        source_composite, original_composite = create_webp_composite(
+            triplets, composite_config=config,
+            horizontal_padding=horizontal_padding, vertical_padding=vertical_padding,
+            matte_black=matte_black, outer_padding=outer_padding, scale2x=scale2x,
+            outer_pad_amt=outer_pad_amt, alternate_spacing=alternate_spacing,
+        )
+
+        if not source_composite or not original_composite:
+            messagebox.showerror("Error", "Failed to create WebP frames")
+            return
+
+        # Convert to RGB on black background for WebP compatibility
+        def _to_rgb_on_black(img):
+            if img.mode == 'RGB':
+                return img
+            bg = Image.new('RGB', img.size, (0, 0, 0))
+            bg.paste(img, (0, 0), img)
+            return bg
+
+        source_frame = _to_rgb_on_black(source_composite)
+        original_frame = _to_rgb_on_black(original_composite)
+
+        # Build animated WebP:
+        # Frame 1: source (1ms)  - quick first frame to avoid initial display delay
+        # Frame 2: source (2000ms) - show source for 2 seconds
+        # Frame 3: original (2000ms) - show original for 2 seconds
+        # loop=0 means loop forever
+        output_path = os.path.join(target, "composite.webp")
+        print(f"DEBUG: [WebP] Saving animated WebP to {output_path}")
+        source_frame.save(
+            output_path,
+            format='WEBP',
+            save_all=True,
+            append_images=[source_frame, original_frame],
+            duration=[1, 2000, 2000],
+            loop=0,
+        )
+        print(f"DEBUG: [WebP] Animated WebP saved successfully ({source_frame.width}x{source_frame.height}, 3 frames)")
+        messagebox.showinfo("Success", f"Animated WebP created at:\n{output_path}")
         save_config(self.collect_config())
 
     # endregion

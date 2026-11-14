@@ -1,5 +1,5 @@
 {
-  "target_dir": "..\\ITEM\\ITEM_ArtifactsArmor\\render",
+  "target_dir": "..\\ITEM\\ITEM_BattleforgedBaubles_2x\\render",
   "use_custom_before": false,
   "custom_before_dir": "",
   "use_alternate_before": false,
@@ -12,6 +12,6 @@
   "scale2x": true,
   "alternate_spacing": false,
   "vertical_padding": "10",
-  "horizontal_padding": "20",
-  "outer_pad_amount": "32"
+  "horizontal_padding": "15",
+  "outer_pad_amount": "8"
 }

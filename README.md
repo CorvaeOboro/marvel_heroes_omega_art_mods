@@ -3,7 +3,7 @@ Marvel Heroes Omega fan art client modifications
 
 DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip )    |    [INSTALL GUIDE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install) | [SOURCE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip)
 
-[ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip )    | [ITEM_BattleforgedBaubles]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip ) 
+[ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip )    | [ITEM_BattleforgedBaubles]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip ) | [ENV_SinisterLab]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ENV_SinisterLab_DarkPurple_20261103.zip )
 
 
 ## ITEM_DarkRunes
@@ -51,11 +51,21 @@ DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_om
 | `Power not allowed at this location!`   | 2201086116071343363  |
 | `You already have that stolen power.`   | 17448350502282396943 |
 
+---
+
+## ENV_SinisterLab
+![ENV_SinisterLab](/docs/ENV/marvel_heroes_omega_env_sinister_lab_04.png?raw=true "ENV_SinisterLab")
+
+[DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ENV_SinisterLab_DarkPurple_20261103.zip) | [UPK version](https://drive.google.com/file/d/1Bwo_cecB8mexd1tmlVJD358Emzh0HXZ1) | the Sinister Lab darkened and non-reflective with wide beveled panel lines
+
 
 # INSTALL
 -  [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip) the ALL pack preset ( uru 2x , runes 1x , artifacts 2x , baubles 2x , UI NoGlass , PowerNotReady ) 
 - OR choose specific packs between the 2x ( 80px ) or original ( 40px ) sizes ( or create your own using the [mod_selector](https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/tree/main/Z_TOOLS/mho_01_mod_selector.py) tool )
-- install the .zip of the TexturePack using Krisan Thyme ModManager
+- install the .zip of the TexturePack using the [MHO Extended Mod Manager](https://github.com/leeper48/MHO-UPK-Tools) ( or the Krisan Thyme ModManager ) :
+  1. click "Install Mod..." , select the downloaded .zip
+  2. check the mod ON
+  3. click the "Apply Changes" button
 
 # other resources
 - MHServerEmu modded github = [MHServerEmu](https://github.com/CorvaeOboro/MHServerEmu)

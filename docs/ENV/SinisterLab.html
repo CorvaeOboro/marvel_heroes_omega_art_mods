@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marvel Heroes Omega - Sinister Lab</title>
 <style>
-:root { --bg:#0d0d0d; --surface:#141414; --border:#2a2a2a; --text:#e0e0e0; --muted:#999; --accent:#4a7fb5; --link:#64b5f6; --code:#1e1e1e; }
+:root { --bg:#090909; --surface:#0e0e0e; --border:#222222; --text:#e0e0e0; --muted:#999; --accent:#4a7fb5; --link:#64b5f6; --code:#161616; }
 * { box-sizing:border-box; }
 html, body { margin:0; height:100%; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
 .page { display:flex; height:100vh; }
 .sidebar { width:12%; min-width:160px; border-right:1px solid var(--border); background:var(--bg); }
 .sidebar iframe { width:100%; height:100%; border:none; }
 .content { flex:1; overflow-y:auto; }
-header { background:linear-gradient(90deg,#0a1520 0%,#0d0d0d 100%); border-bottom:2px solid var(--accent); padding:1.2rem 1rem; text-align:center; }
+header { background:linear-gradient(90deg,#060d14 0%,#090909 100%); border-bottom:2px solid var(--accent); padding:1.2rem 1rem; text-align:center; }
 header h1 { margin:0; font-size:2rem; color:#fff; }
 header p { margin:0.5rem 0 0; color:var(--muted); }
 .container { max-width:1000px; margin:0 auto; padding:2rem 1.5rem; }
 h2 { color:#fff; border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-top:2.5rem; font-size:1.4rem; }
 h3 { color:#fff; margin-top:1.5rem; font-size:1.1rem; }
+h4 { color:var(--muted); margin:1rem 0 0.2rem; font-size:0.95rem; }
 a { color:var(--link); text-decoration:none; }
 a:hover { text-decoration:underline; }
 ul, ol { padding-left:1.4rem; }
@@ -25,13 +26,17 @@ li { margin-bottom:0.4rem; }
 table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; }
 th, td { border:1px solid var(--border); padding:0.5rem 0.7rem; text-align:left; vertical-align:top; }
 th { background:var(--surface); color:#fff; }
-td { background:#111; }
+td { background:#0c0c0c; }
 code, pre { background:var(--code); border:1px solid var(--border); border-radius:4px; font-family:Consolas,Monaco,'Courier New',monospace; font-size:0.9rem; }
 code { padding:0.15rem 0.35rem; }
 pre { padding:0.8rem; overflow-x:auto; }
 .note { border-left:3px solid var(--accent); background:var(--surface); padding:0.8rem 1rem; margin:1rem 0; border-radius:0 6px 6px 0; }
 .stub { border-left:3px solid #b5744a; background:var(--surface); padding:0.8rem 1rem; margin:1rem 0; border-radius:0 6px 6px 0; }
 footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0.9rem; border-top:1px solid var(--border); margin-top:3rem; }
+.overview-img { display:block; max-width:640px; width:100%; margin:0 auto 1.5rem; border-radius:6px; border:1px solid var(--border); }
+.full-img { display:block; width:100%; margin:0.5rem 0; border-radius:4px; border:1px solid var(--border); }
+.gallery { display:grid; grid-template-columns:repeat(2, 1fr); gap:0.5rem; margin:0.8rem 0; }
+.gallery img { width:100%; border:1px solid var(--border); border-radius:4px; }
 .container img { cursor: zoom-in; }
 .lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.95); cursor: zoom-out; padding: 2rem; }
 .lightbox.active { display: flex; }
@@ -50,50 +55,159 @@ footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0
 
 <div class="container">
 
-<div class="stub">
-    <strong>STUB</strong> - this page is a work in progress. Asset references and texture lists will be filled in as the environment mod is built out.
+<center>
+<p> Sinister Lab darkened and non-reflective with wide beveled panel lines
+<img class="overview-img" src="./marvel_heroes_omega_env_sinister_lab_04.png" alt="Sinister Lab overview">
+
+<p>    inspired by KimKim's comic style overhaul alterations  
+<p>the original artwork of the Sinister Lab created by <a href="https://julesbr.artstation.com/projects/qzVQz">Julia Brasil</a>
+and <a href="https://johndawson.artstation.com/projects/4rKNk">John Dawson</a> 
+ </center>
+
+<h2>IMAGES</h2>
+<div class="gallery">
+    <img src="./marvel_heroes_omega_env_sinister_lab_01.png" alt="Sinister Lab 01">
+    <img src="./marvel_heroes_omega_env_sinister_lab_03.png" alt="Sinister Lab 03">
+    <img src="./marvel_heroes_omega_env_sinister_lab_04.png" alt="Sinister Lab 04">
+    <img src="./marvel_heroes_omega_env_sinister_lab_05.png" alt="Sinister Lab 05">
+    <img src="./marvel_heroes_omega_env_sinister_lab_72.png" alt="Sinister Lab 72">
+    <img src="./marvel_heroes_omega_env_sinister_lab_86.png" alt="Sinister Lab 86">
+    <img src="./marvel_heroes_omega_env_sinister_lab_99.png" alt="Sinister Lab 99">
 </div>
 
-<p>The Sinister Lab is a terminal mission environment. It contains a scifi lab environment mesh set that is distinct from the forested micro-biomes found within the same region. This page documents the relevant <code>.upk</code> packages and the texture assets they reference.</p>
+<h2>DOWNLOAD</h2>
+<ul>
+    <li><a href="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ENV_SinisterLab_DarkPurple_20261103.zip">DOWNLOAD    Sinister Lab - Dark Purple</a>  =  recommended .zip mod TexturePack for <a href="https://github.com/leeper48/MHO-UPK-Tools">MHO Extended Mod Manager</a></li>
+    <li><a href="https://drive.google.com/file/d/1Bwo_cecB8mexd1tmlVJD358Emzh0HXZ1">DOWNLOAD    Sinister Lab - Dark Purple UPK</a>  = .zip mod of edited UPK ( for Krisan Thyme Mod Manager)</li>
+</ul>
 
-<h2>Region</h2>
-<p>Sinister Lab terminal mission region (level 35).</p>
+<h2>INSTALL</h2>
+<p>Install the TexturePack <code>.zip</code> with the <a href="https://github.com/leeper48/MHO-UPK-Tools">MHO Extended Mod Manager</a> (or the Krisan Thyme ModManager):</p>
+<ol>
+    <li>Click <strong>Install Mod...</strong> and select the downloaded <code>.zip</code></li>
+    <li>Check the mod <strong>ON</strong></li>
+    <li>Click the <strong>Apply Changes</strong> button</li>
+</ol>
+---
+<ul>
+    <li>major thanks to <a href="https://github.com/TruSkillzzRuns/">TruSkillzzRuns</a> whose Omega Asset Studio helped to find and modify this environments textures . </li>
+    <li>and thanks to <a href="https://github.com/leeper48/">Leeper48</a> whose <a href="https://github.com/leeper48/MHO-UPK-Tools">MHO Extended Mod Manager</a> enables mods expanded texture replacement , via the ExtraIconReplacements in manifest .json .</li>
+</ul>
 
-<h2>UPK Packages</h2>
+ <h2>PROCESS</h2>
+<ul>
+<li> the Floor spec altered to not display the cubemap by setting B channel to black </li>
+<li> diffuse darkened the white panel areas and brightened the black panel areas </li>
+<li> widening the bevels of the floor tiles , stylistically choosing to bake the lighting on the texture by 2d bevel + emboss from panel mask . </li>
+<li> Emphasizing the panel lines further by multiplying Ambient Occlusion onto diffuse </li>
+</ul>
+<p>approximate panel lines</p>
+ <img class="full-img" src="./marvel_heroes_omega_env_sinister_lab_process_lines.png" alt="Sinister Lab process - lines">
 
+<ul>
+<li>initially attempted using the spec texture R (AO) to extract lines however it was from low resolution compressed DXT1 source</li>
+<li>secondly attempted to approximate the design pattern programmatically to create precise lines at higher resolutions</li>
+<li> the result shown above on the lower right </li>
+</ul>
+<img class="full-img" src="./marvel_heroes_omega_env_sinister_lab_sinlabnpe_floors_b_code.png" alt="Sinister Lab process - floors_b code">
+
+<h2>UPK</h2>
+
+ 
 <table>
     <tr><th>Package</th><th>Contents</th></tr>
     <tr>
         <td><code>SCS__DailyGSinisterLabRegionL35_SF.upk</code></td>
-        <td>Contains the mesh and texture assets referenced by the Sinister Lab terminal mission. This is the primary package for the scifi lab environment mesh set.</td>
+        <td>Primary region package. Floor tiles, goo splatter decals, CONTROL/LAB/OBSERVATION signage decals, and metal/midpiece/plain wall textures.</td>
+    </tr>
+    <tr>
+        <td><code>SinisterLab_D.upk</code></td>
+        <td>Detail/prop package. Cryopod occupant texture and LAB/OBSERVATION signage decals.</td>
+    </tr>
+    <tr>
+        <td><code>SCS__WakandaP1RegionBand_SF.upk</code></td>
+        <td>Shared environment package. Reuses the floor tiles and metal/midpiece/plain wall textures.</td>
+    </tr>
+    <tr>
+        <td><code>UC__MarvelDestructible_DB_SciLab_GMachineA_SF.upk</code></td>
+        <td>Destructible lab machine. Uses the metal wall textures.</td>
+    </tr>
+    <tr>
+        <td><code>UC__MarvelDestructible_SinLab_Console_A_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_A_02_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_A_03_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_A_04_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_A_05_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_B_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_D_SF.upk</code><br>
+            <code>UC__MarvelDestructible_SinLab_Console_E_SF.upk</code></td>
+        <td>Destructible lab consoles. Each uses the metal wall textures.</td>
     </tr>
 </table>
 
-<h2>Environment Groups</h2>
+ 
 
-<h3>Scifi Lab</h3>
-<p>The scifi lab environment mesh set. Lab interiors, equipment, and techno-logical structures that differentiate this area from the surrounding biomes.</p>
+<h2>TEXTURES  </h2>
+<img class="full-img" src="./marvel_heroes_omega_env_sinister_lab_textures.png" alt="Sinister Lab textures composite">
+
+
+<h4>FLOOR</h4>
 <table>
-    <tr><th>Asset</th><th>Type</th><th>Notes</th></tr>
-    <tr><td><em>to be documented</em></td><td>mesh</td><td></td></tr>
+    <tr><th>Texture</th><th>Size</th></tr>
+    <tr><td><code>sinisterlabsnpe_floors_a_diff</code></td><td>2048</td></tr>
+    <tr><td><code>sinisterlabsnpe_floors_a_spec</code></td><td>512</td></tr>
+    <tr><td><code>sinisterlabsnpe_floors_b_diff</code></td><td>2048</td></tr>
+    <tr><td><code>sinisterlabsnpe_floors_b_spec</code></td><td>512</td></tr>
 </table>
 
-original artwork for the science lab  by Julia Brasil
-<a href="https://julesbr.artstation.com/projects/qzVQz">https://julesbr.artstation.com/projects/qzVQz</a>
-in collaboration with John Dawson 
-<a href="https://johndawson.artstation.com/projects/4rKNk">https://johndawson.artstation.com/projects/4rKNk</a>
-
-<h3>Forested Micro-Biomes</h3>
-<p>Forested micro-biomes that appear within the same Sinister Lab region. These contrast with the scifi lab set and use a different texture palette.</p>
+<h4>WALLS</h4>
 <table>
-    <tr><th>Asset</th><th>Type</th><th>Notes</th></tr>
-    <tr><td><em>to be documented</em></td><td>mesh</td><td></td></tr>
+    <tr><th>Texture</th><th>Size</th></tr>
+    <tr><td><code>wall_metal_txt_blue_diff</code></td><td>512</td></tr>
+    <tr><td><code>wall_metal_txt_diff</code></td><td>2048</td></tr>
+    <tr><td><code>wall_metal_txt_spec</code></td><td>512</td></tr>
+    <tr><td><code>wall_midpiece_txt_diff</code></td><td>512</td></tr>
+    <tr><td><code>wall_midpiece_txt_spec</code></td><td>512</td></tr>
+    <tr><td><code>wall_midpieceback_txt_diff</code></td><td>1024</td></tr>
+    <tr><td><code>wall_midpieceback_txt_spec</code></td><td>512</td></tr>
+    <tr><td><code>wallplain_base_txt_diff</code></td><td>512</td></tr>
+    <tr><td><code>wallplain_base_txt_spec</code></td><td>512</td></tr>
+    <tr><td><code>wallplain_txt_diff</code></td><td>512</td></tr>
+    <tr><td><code>wallplain_txt_spec</code></td><td>512</td></tr>
 </table>
 
-<h2>Texture References</h2>
+<h4>GOO</h4>
 <table>
-    <tr><th>Texture</th><th>Package</th><th>Used by</th></tr>
-    <tr><td><em>to be documented</em></td><td></td><td></td></tr>
+    <tr><th>Texture</th><th>Size</th></tr>
+    <tr><td><code>sinlabnpe_goodecal_diff_a</code></td><td>512</td></tr>
+    <tr><td><code>sinlabnpe_goodecal_diff_b</code></td><td>256</td></tr>
+    <tr><td><code>sinlabnpe_goodecal_diff_c</code></td><td>512</td></tr>
+    <tr><td><code>sinlabnpe_goodecal_diff_d</code></td><td>512</td></tr>
+    <tr><td><code>sinlabnpe_goodecal_diff_e</code></td><td>256</td></tr>
+</table>
+ 
+
+<h4>TEXT</h4>
+<table>
+    <tr><th>Texture</th><th>Size</th></tr>
+    <tr><td><code>sinlabnpe_controldecals_c</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_labdecals_a</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_labdecals_b</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_labdecals_c</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_labdecals_d</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_a</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_b</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_c</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_d</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_e</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_f</code></td><td>128</td></tr>
+    <tr><td><code>sinlabnpe_observationdecals_g</code></td><td>128</td></tr>
+</table>
+
+<h4>CHARACTER</h4>
+<table>
+    <tr><th>Texture</th><th>Size</th></tr>
+    <tr><td><code>sinlabnpe_cryopod_person_b_diff</code></td><td>512</td></tr>
 </table>
 
 </div>

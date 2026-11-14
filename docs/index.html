@@ -5,38 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marvel Heroes Omega - Art Mods</title>
 <style>
-:root { --bg:#0d0d0d; --surface:#141414; --border:#2a2a2a; --text:#e0e0e0; --muted:#999; --accent:#4a7fb5; --link:#64b5f6; --code:#1e1e1e; }
+:root { --bg:#090909; --surface:#0e0e0e; --border:#222222; --text:#e0e0e0; --muted:#999; --accent:#4a7fb5; --link:#64b5f6; --code:#161616; }
 * { box-sizing:border-box; }
 html,body { margin:0; height:100%; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
 .page { display:flex; height:100vh; }
 .sidebar { width:12%; min-width:160px; border-right:1px solid var(--border); background:var(--bg); }
 .sidebar iframe { width:100%; height:100%; border:none; }
 .content { flex:1; overflow-y:auto; }
-header { background:linear-gradient(90deg,#0a1520 0%,#0d0d0d 100%); border-bottom:2px solid var(--accent); padding:1.2rem 1rem; text-align:center; }
+header { background:linear-gradient(90deg,#060d14 0%,#090909 100%); border-bottom:2px solid var(--accent); padding:0.7rem 1rem; text-align:center; }
 header h1 { margin:0; font-size:2.2rem; color:#fff; letter-spacing:1px; }
-header p { margin:0.5rem 0 0; color:var(--muted); font-size:1.05rem; }
-.container { max-width:1000px; margin:0 auto; padding:2rem 1.5rem; }
-h2 { color:#fff; border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-top:2.5rem; font-size:1.4rem; }
+header p { margin:0.3rem 0 0; color:var(--muted); font-size:1.05rem; }
+.container { max-width:1200px; margin:0 auto; padding:0.6rem 1.5rem 2rem; }
+.container > center { display:block; margin:1px 0 0; }
+h2 { color:#fff; border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-top:1.2rem; font-size:1.4rem; }
+center + .mod-section { margin-top:5px; }
 .mod-section { color:var(--accent); text-align:center; border-bottom:none; padding-bottom:0; }
 h3 { color:#fff; margin-top:1.5rem; font-size:1.1rem; }
 a { color:var(--link); text-decoration:none; }
 a:hover { text-decoration:underline; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; margin-top:1rem; }
-.card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:0.8rem; transition:border-color 0.2s; }
-.card:hover { border-color:var(--accent); }
-.card h3 { margin:0 0 0.5rem; color:var(--accent); font-size:1.1rem; }
-.card p { margin:0; color:var(--muted); font-size:0.95rem; }
 .note { border-left:3px solid var(--accent); background:var(--surface); padding:0.8rem 1rem; margin:1rem 0; border-radius:0 6px 6px 0; }
-.mod-list { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:0.5rem; }
-.mod-list li { margin-bottom:0.2rem; }
-.mod-list a { color:var(--text); font-weight:600; font-size:1rem; text-align:center; display:block; }
-.mod-list a:hover { color:var(--link); }
-.mod-list img { display:block; max-width:200px; width:100%; margin:0.2rem auto 0; border:1px solid var(--border); }
-footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0.9rem; border-top:1px solid var(--border); margin-top:3rem; }
-.container img { cursor: zoom-in; }
-.lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.95); cursor: zoom-out; padding: 2rem; }
-.lightbox.active { display: flex; }
-.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.mod-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:0.5rem; margin-top:0.3rem; }
+.mod-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:0.3rem 0.8rem; transition:border-color 0.2s; color:var(--text); }
+.mod-card:hover { border-color:var(--accent); text-decoration:none; }
+.mod-card h3 { margin:0 0 0.5rem 0.5rem; color:var(--accent); font-size:1.1rem; }
+.mod-body { display:flex; gap:0.8rem; align-items:flex-start; }
+.mod-body img, .mod-body video { width:55%; max-width:340px; border-radius:4px; border:1px solid var(--border); flex-shrink:0; }
+.mod-body p { margin:0; color:var(--muted); font-size:0.95rem; flex:1; }
+@media (max-width:700px) { .mod-grid { grid-template-columns:1fr; } }
+footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0.9rem; border-top:1px solid var(--border); margin-top:1.5rem; }
 </style>
 </head>
 <body>
@@ -53,58 +49,84 @@ footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0
 </center>
 
 <h2 class="mod-section">ITEM</h2>
-<ul class="mod-list">
-    <li><a href="ITEM/DarkRunes.html">Dark Runes<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png" alt="Dark Runes"></a></li>
-    <li><a href="ITEM/UruReForged.html">Uru Reforged<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png" alt="Uru Reforged"></a></li>
-    <li><a href="ITEM/ArtifactsArmor.html">Artifacts Armor<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png" alt="Artifacts Armor"></a></li>
-    <li><a href="ITEM/BattleforgedBaubles.html">Battleforged Baubles<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png" alt="Battleforged Baubles"></a></li>
-</ul>
- 
+<div class="mod-grid">
+    <a href="ITEM/DarkRunes.html" class="mod-card">
+        <h3>Dark Runes</h3>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png" alt="Dark Runes">
+            <p>Runes of Asgardian magic carved into basalt stone. Dark-themed replacements for rune item icons.</p>
+        </div>
+    </a>
+    <a href="ITEM/UruReForged.html" class="mod-card">
+        <h3>Uru Reforged</h3>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png" alt="Uru Reforged">
+            <p>Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor.</p>
+        </div>
+    </a>
+    <a href="ITEM/ArtifactsArmor.html" class="mod-card">
+        <h3>Artifacts Armor</h3>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png" alt="Artifacts Armor">
+            <p>Ancient Artifacts of powers cosmic, awakened Armor enchanted by the techno-logical.</p>
+        </div>
+    </a>
+    <a href="ITEM/BattleforgedBaubles.html" class="mod-card">
+        <h3>Battleforged Baubles</h3>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png" alt="Battleforged Baubles">
+            <p>Bionically built Baubles forged in Battles from the beyond.</p>
+        </div>
+    </a>
+</div>
 
 <h2 class="mod-section">UI</h2>
-<ul class="mod-list">
-    <li><a href="UI/NoGlassOverlay.html">No Glass Overlay<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/UI/UI_Item_NoGlassOverlay_compare.webp" alt="No Glass Overlay"></a></li>
-    <li><a href="UI/PowerNotReady.html">Power Not Ready Hidden<img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/UI/marvel_heroes_omega_mod_display_message_removal.png" alt="Power Not Ready Hidden"></a></li>
-</ul>
-
-<h2>ITEM</h2>
-<div class="grid">
-    <a href="ITEM/DarkRunes.html" class="card">
-        <h3>Dark Runes</h3>
-        <p>Runes of Asgardian magic carved into basalt stone. Dark-themed replacements for rune item icons.</p>
-    </a>
-    <a href="ITEM/UruReForged.html" class="card">
-        <h3>Uru Reforged</h3>
-        <p>Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor.</p>
-    </a>
-    <a href="ITEM/ArtifactsArmor.html" class="card">
-        <h3>Artifacts Armor</h3>
-        <p>Ancient Artifacts of powers cosmic, awakened Armor enchanted by the techno-logical.</p>
-    </a>
-    <a href="ITEM/BattleforgedBaubles.html" class="card">
-        <h3>Battleforged Baubles</h3>
-        <p>Bionically built Baubles forged in Battles from the beyond.</p>
-    </a>
-</div>
-
-
-<h2>UI</h2>
-<div class="grid">
-    <a href="UI/NoGlassOverlay.html" class="card">
+<div class="mod-grid">
+    <a href="UI/NoGlassOverlay.html" class="mod-card">
         <h3>No Glass Overlay</h3>
-        <p>Removes the "glass" style bevel emboss on item and power icons.</p>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/UI/UI_Item_NoGlassOverlay_compare.webp" alt="No Glass Overlay">
+            <p>Removes the "glass" style bevel emboss on item and power icons.</p>
+        </div>
     </a>
-    <a href="UI/PowerNotReady.html" class="card">
+    <a href="UI/PowerNotReady.html" class="mod-card">
         <h3>Power Not Ready Hidden</h3>
-        <p>A locale string replacement that hides "Power not ready" red text and similar failure messages.</p>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/UI/marvel_heroes_omega_mod_display_message_removal.png" alt="Power Not Ready Hidden">
+            <p>A locale string replacement that hides "Power not ready" red text and similar failure messages.</p>
+        </div>
     </a>
 </div>
 
-<h2>TOOLS</h2>
-<div class="grid">
-    <a href="TOOLS/Z_TOOLS.html" class="card">
+<h2 class="mod-section">SFX</h2>
+<div class="mod-grid">
+    <a href="SFX/SoundSilencer.html" class="mod-card">
+        <h3>Sound Silencer</h3>
+        <div class="mod-body">
+            <img src="https://raw.githubusercontent.com/CorvaeOboro/MH_PCK_SoundSilencer/main/docs/MH_PCK_SoundSilencer_header.png" alt="Sound Silencer">
+            <p> silences specific sounds by editing the game's audio .pck files. preset includes all "cant do that" phrases</p>
+        </div>
+    </a>
+</div>
+
+<h2 class="mod-section">ENV</h2>
+<div class="mod-grid">
+    <a href="ENV/SinisterLab.html" class="mod-card">
+        <h3>Sinister Lab</h3>
+        <div class="mod-body">
+            <img src="ENV/marvel_heroes_omega_env_sinister_lab_04.png" alt="Sinister Lab">
+            <p>The Sinister Lab darkened and non-reflective with wide beveled panel lines</p>
+        </div>
+    </a>
+</div>
+
+<h2 class="mod-section">TOOLS</h2>
+<div class="mod-grid">
+    <a href="TOOLS/Z_TOOLS.html" class="mod-card">
         <h3>Z_TOOLS Toolchain</h3>
-        <p>Python tooling used to create, compare, convert, and install the icon/texture art mods.</p>
+        <div class="mod-body">
+            <p>Python tooling used to create, compare, convert, and install the icon/texture art mods.</p>
+        </div>
     </a>
 </div>
 
@@ -112,10 +134,12 @@ footer { text-align:center; padding:1.2rem 1rem; color:var(--muted); font-size:0
 <ul>
     <li><a href="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip">DOWNLOAD the ALL pack preset</a> (uru 2x, runes 1x, artifacts 2x, baubles 2x, UI NoGlass, PowerNotReady)</li>
     <li>OR choose specific packs between the 2x (80px) or original (40px) sizes (or create your own using the <a href="TOOLS/Z_TOOLS.html">mod_selector</a> tool)</li>
-    <li>Install the <code>.zip</code> of the TexturePack using <a href="https://github.com/TruSkillzzRuns/OmegaAssetStudio" target="_blank">Krisan Thyme ModManager</a></li>
 </ul>
+<p>Install the <code>.zip</code> with the <a href="https://github.com/leeper48/MHO-UPK-Tools">MHO Extended Mod Manager</a> (or the Krisan Thyme ModManager): click <strong>Install Mod...</strong>, select the zip, check the mod <strong>ON</strong>, click the <strong>Apply Changes</strong> button.</p>
 
-
- 
+</div>
+<footer><p> </p></footer>
+    </div>
+</div>
 </body>
 </html>

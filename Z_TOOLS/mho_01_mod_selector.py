@@ -60,7 +60,7 @@ PRESETS
   The current selections and settings are auto-saved to
   mho_01_mod_selector_config.json on every export.
   Use Load/Save Preset to store named configurations in
-  mho_01_mod_selector_presets/ for sharing or for a git-hosted site.
+  mho_01_mod_selector_presets/ 
 
   Preset JSON format (selections include per-file exclusions):
 
@@ -96,7 +96,7 @@ STATUS::working
 VERSION::20260721
 """
 
-# region Imports
+# region Import
 
 import json
 import os
@@ -1019,7 +1019,7 @@ class MarvelModSelector:
 # endregion
 
 
-# region UI Helpers
+# region UI Helper
 
     def _bind_mousewheel(self, canvas):
         def _on_mousewheel(event):
@@ -1112,7 +1112,7 @@ class MarvelModSelector:
 # endregion
 
 
-# region UI Presets
+# region UI Preset
 
     def _build_preset_data(self, name="Untitled"):
         return {

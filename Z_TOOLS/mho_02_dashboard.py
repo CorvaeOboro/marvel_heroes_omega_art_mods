@@ -63,7 +63,6 @@ KEY COMPONENTS
 
 STAGES (in order): P=PSD | N=PNG | U=Upscale PSD | u=Upscale PNG | R=Refs | A=Approved | D=DDS
   Green=present, Red=missing, Gray=not critical, Orange=folder exists but empty
-  DDS is a post-approval step and is shown in grey when missing.
 
 CONTROLS
   Left-click group button  = toggle visibility
@@ -918,7 +917,7 @@ class MarvelHeroesDashboard:
 # endregion
 
 
-# region UI Controls
+# region UI Control
 
     def _update_photoshop_path(self, *args) -> None:
         global PHOTOSHOP_EXE
@@ -1003,18 +1002,39 @@ class MarvelHeroesDashboard:
         self.group_buttons.clear()
 
         groups = sorted(set(i["group"] for i in self.items))
+
+        frame_width = self.group_filter_frame.winfo_width()
+        if frame_width <= 1:
+            frame_width = 10000
+
+        btn_font = ("Segoe UI", 16)
+        font_obj = tkfont.Font(font=btn_font)
+        btn_overhead = 28  # padx=12 each side + pack padx=2 each side + margin
+
+        row_frame = Frame(self.group_filter_frame, bg=DARK_GRAY)
+        row_frame.pack(fill=X, side=TOP)
+        current_row_width = 0
+
         for gname in groups:
             count = sum(1 for i in self.items if i["group"] == gname)
             is_excluded = gname in self.excluded_groups
             bg_color = LIGHTER_GRAY if not is_excluded else DARK_GRAY
             fg_color = WHITE if not is_excluded else ACCENT
 
+            label_text = f"{gname} {count}"
+            btn_width = font_obj.measure(label_text) + btn_overhead
+
+            if current_row_width + btn_width > frame_width and current_row_width > 0:
+                row_frame = Frame(self.group_filter_frame, bg=DARK_GRAY)
+                row_frame.pack(fill=X, side=TOP)
+                current_row_width = 0
+
             btn = Button(
-                self.group_filter_frame,
-                text=f"{gname} {count}",
+                row_frame,
+                text=label_text,
                 command=lambda gn=gname: self._toggle_group(gn),
                 bg=bg_color, fg=fg_color,
-                font=("Segoe UI", 16),
+                font=btn_font,
                 relief=FLAT, bd=0,
                 activebackground=LIGHTER_GRAY, activeforeground=WHITE,
                 padx=12, pady=4,
@@ -1022,6 +1042,7 @@ class MarvelHeroesDashboard:
             btn.pack(side=LEFT, padx=2, pady=2)
             btn.bind("<Button-3>", lambda e, gn=gname: self._solo_group(gn))
             self.group_buttons[gname] = btn
+            current_row_width += btn_width
 
     def _toggle_group(self, group_name: str) -> None:
         if self.solo_mode_active:
@@ -1059,7 +1080,7 @@ class MarvelHeroesDashboard:
 # endregion
 
 
-# region UI Actions
+# region UI Action
 
     def _show_info(self) -> None:
         mb.showinfo("Dashboard Info",
@@ -1109,9 +1130,8 @@ class MarvelHeroesDashboard:
                 skipped += 1
                 continue
             upscale_dir_path = os.path.join(group_path, "upscale")
-            item_folder = os.path.join(upscale_dir_path, item["name"])
-            os.makedirs(item_folder, exist_ok=True)
-            target_psd = os.path.join(item_folder, f"{item['name']}.psd")
+            os.makedirs(upscale_dir_path, exist_ok=True)
+            target_psd = os.path.join(upscale_dir_path, f"{item['name']}.psd")
             if os.path.isfile(target_psd):
                 skipped += 1
             else:
@@ -1120,6 +1140,8 @@ class MarvelHeroesDashboard:
                     created += 1
                 except Exception:
                     errors += 1
+            item_folder = os.path.join(upscale_dir_path, item["name"])
+            os.makedirs(item_folder, exist_ok=True)
             ref_folder = os.path.join(item_folder, "ref")
             os.makedirs(ref_folder, exist_ok=True)
 
@@ -1208,11 +1230,12 @@ class MarvelHeroesDashboard:
     def _create_upscale_and_open(self, base_psd: str, item_name: str, group_path: str) -> None:
         try:
             upscale_dir_path = os.path.join(group_path, "upscale")
-            item_folder = os.path.join(upscale_dir_path, item_name)
-            os.makedirs(item_folder, exist_ok=True)
-            target_psd = os.path.join(item_folder, f"{item_name}.psd")
+            os.makedirs(upscale_dir_path, exist_ok=True)
+            target_psd = os.path.join(upscale_dir_path, f"{item_name}.psd")
             if not os.path.isfile(target_psd):
                 shutil.copy2(base_psd, target_psd)
+            item_folder = os.path.join(upscale_dir_path, item_name)
+            os.makedirs(item_folder, exist_ok=True)
             ref_folder = os.path.join(item_folder, "ref")
             os.makedirs(ref_folder, exist_ok=True)
             self.root.after(300, lambda: open_photoshop(target_psd))

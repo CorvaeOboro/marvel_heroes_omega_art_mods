@@ -1,16 +1,23 @@
 {
   "excluded_groups": [
-    "ITEM_DarkRunes_2x",
-    "ITEM_UruReForged",
+    "ITEM_Medallion_2x",
+    "ITEM_Bow",
     "ITEM_ArtifactsArmor_2x",
-    "ITEM_ArtifactsArmor",
-    "ITEM_EquipmentOutlined",
+    "ITEM_UruReForged",
     "ITEM_DarkRunes",
-    "ITEM_Third",
+    "Item_Gift",
+    "ITEM_Third_2x",
+    "ITEM_DarkRunes_2x",
     "ITEM_UruReForged_2x",
-    "ITEM_Artifacts2_2x",
+    "ITEM_ArtifactsArmor",
+    "ITEM_Ring",
+    "ITEM_Medallion",
+    "ITEM_Fith",
     "ITEM_BattleforgedBaubles_2x",
-    "Item_Gift"
+    "ITEM_Artifacts2_2x",
+    "ITEM_Fourth",
+    "ITEM_BattleforgedBaubles",
+    "ITEM_EquipmentOutlined"
   ],
   "photoshop_path": "C:\\Program Files\\Adobe\\Adobe Photoshop 2024\\Photoshop.exe"
 }

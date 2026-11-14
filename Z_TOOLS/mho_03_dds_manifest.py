@@ -5,15 +5,17 @@ FUNCTIONALITY
   Batch-converts PSD or PNG source images into DDS texture files using texconv.exe,
   then writes a manifest.json describing texture replacements for MHModManager.
   Optionally copies the resulting DDS + manifest to a target mod folder.
+  Scans mod folders under ../ITEM and ../ENV relative to this script.
 
   Actions:
-    - EXPORT DDS     : converts source images to DDS (only if source is newer),
-                       writes manifest, optionally copies to target folder
-    - REFRESH TARGET : re-writes manifest from existing DDS files and copies to
-                       target (no re-conversion)
+    - EXPORT TO MOD  : converts source images to DDS (only if source is newer),
+                       writes manifest, optionally copies to target mod folder
     - PSD to PNG     : exports PSDs to PNGs in selected folders (only if PSD is
                        newer than existing PNG)
-    - CLEAN DDS      : removes all .dds files from selected folders
+    - MAKE 2X        : composites PSDs from base folders, resizes to 2x with
+                       Lanczos, saves PNGs to corresponding _2x folders (only
+                       if PSD is newer than existing 2x PNG)
+    - DELETE DDS     : removes all .dds files from selected folders
     - CREATE ZIP     : creates per-folder datetime zips in 00_MODS/ containing
                        .dds + manifest.json (skips if existing zip is up-to-date)
     - CREATE ALL ZIP : creates combined ITEM_ALL zip with merged manifest including
@@ -51,9 +53,9 @@ KEY COMPONENTS
   - write_manifest()      : writes manifest.json for a folder
   - copy_to_target()      : copies DDS + manifest to target mod folder
   - run_export()          : GUI-triggered batch export across selected folders
-  - run_refresh()         : GUI-triggered manifest refresh from existing DDS
   - run_psd_to_png()      : GUI-triggered PSD to PNG export (skip if up-to-date)
-  - run_clean_dds()       : GUI-triggered DDS file removal from selected folders
+  - run_make_2x()         : GUI-triggered 2x upscale export to _2x folders (skip if up-to-date)
+  - run_clean_dds()       : GUI-triggered DDS file deletion from selected folders
   - run_create_zip()      : GUI-triggered per-folder zip creation in 00_MODS/
   - run_create_all_zip()  : GUI-triggered combined ALL zip with UI+SFX merge
   - main()                : standalone Tkinter GUI (sections: Settings, Folders, Actions, Log)
@@ -68,7 +70,7 @@ TOOLSGROUP::PIPELINE
 SORTGROUP::2
 SORTPRIORITY::1
 STATUS::working
-VERSION::20260721
+VERSION::20260801
 """
 
 # region Imports
@@ -89,7 +91,7 @@ CONFIG_FILE = "mho_03_dds_manifest_config.json"
 # endregion
 
 
-# region Core Pipeline
+# region Core 
 
 def process_folder(folder_path, texconv_path, author, use_psd, dds_format,
                    bc_quality, dds_header, generate_mipmaps, premultiply_alpha,
@@ -226,7 +228,7 @@ def process_folder(folder_path, texconv_path, author, use_psd, dds_format,
 # endregion
 
 
-# region Manifest & Target
+# region Manifest 
 
 def write_manifest(folder_path, author, replacements):
     folder_name = os.path.basename(folder_path)
@@ -265,7 +267,7 @@ def copy_to_target(folder_path, target_base, entry, log_func):
 # endregion
 
 
-# region Export Operations
+# region Export 
 
 def run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
                target_entry, folder_vars, dds_format_var, bc_quality_var,
@@ -294,12 +296,9 @@ def run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
         log_text.see(tk.END)
         root.update_idletasks()
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    item_dir = os.path.join(script_dir, "..", "ITEM")
-    item_dir = os.path.normpath(item_dir)
-
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
         return
 
     selected_folders = [name for name, var in folder_vars.items() if var.get()]
@@ -331,7 +330,7 @@ def run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
         })
         save_config(config)
 
-    log(f"Processing folders in: {item_dir}")
+    log(f"Processing folders in: {', '.join(get_source_dirs().keys())}")
     log(f"Source mode: {'PSD' if use_psd else 'PNG'}")
     log(f"DDS format: {dds_format}  |  BC quality: {bc_quality}  |  "
         f"Header: {dds_header}  |  "
@@ -340,8 +339,8 @@ def run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
         f"Ignore 00_: {'on' if ignore_00_prefix else 'off'}")
     processed = 0
     for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if os.path.isdir(folder_path):
+        folder_path = folder_map.get(entry)
+        if folder_path and os.path.isdir(folder_path):
             log(f"Processing folder: {entry}")
             if process_folder(folder_path, texconv_path, author, use_psd, dds_format,
                               bc_quality, dds_header, generate_mipmaps, premultiply_alpha,
@@ -351,76 +350,6 @@ def run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
                     copy_to_target(folder_path, target_base, entry, log)
 
     log(f"\nDone. Processed {processed} folder(s).")
-
-
-def run_refresh(author_entry, target_entry, folder_vars, total_replace_var, log_text, root, config=None):
-    author = author_entry.get().strip()
-    target_base = target_entry.get().strip()
-    if not target_base:
-        messagebox.showerror("Missing Input", "Please provide the target export folder path.")
-        return
-
-    log_text.delete("1.0", tk.END)
-    def log(msg):
-        log_text.insert(tk.END, msg + "\n")
-        log_text.see(tk.END)
-        root.update_idletasks()
-
-    item_dir = get_item_dir()
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
-        return
-
-    selected_folders = [name for name, var in folder_vars.items() if var.get()]
-    if not selected_folders:
-        messagebox.showwarning("No Folders Selected", "Please select at least one mod folder to refresh.")
-        return
-
-    log("Refreshing target folder(s)...")
-    processed = 0
-    for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if not os.path.isdir(folder_path):
-            continue
-        log(f"Refreshing folder: {entry}")
-
-        dds_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".dds")]
-        dds_files.sort()
-        if not dds_files:
-            log("  No DDS files found, skipping.")
-            continue
-
-        replacements = []
-        for dds_name in dds_files:
-            base_name = os.path.splitext(dds_name)[0]
-            replacements.append({
-                "TextureName": base_name,
-                "DdsFileName": dds_name
-            })
-
-        write_manifest(folder_path, author, replacements)
-        log(f"  Wrote manifest.json with {len(replacements)} texture replacement(s).")
-
-        target_folder = os.path.join(target_base, entry)
-        if total_replace_var.get() and os.path.isdir(target_folder):
-            try:
-                shutil.rmtree(target_folder)
-                log(f"  Removed existing target folder: {target_folder}")
-            except Exception as e:
-                log(f"  ERROR removing target folder: {e}")
-
-        copy_to_target(folder_path, target_base, entry, log)
-        processed += 1
-
-    if config is not None:
-        config.update({
-            "author": author,
-            "target_folder": target_base,
-            "total_replace": total_replace_var.get(),
-        })
-        save_config(config)
-
-    log(f"\nDone. Refreshed {processed} folder(s).")
 
 
 def run_psd_to_png(folder_vars, ignore_00_var, log_text, root):
@@ -438,9 +367,9 @@ def run_psd_to_png(folder_vars, ignore_00_var, log_text, root):
         messagebox.showerror("Missing Dependency", "psd_tools and Pillow are required for PSD to PNG export.")
         return
 
-    item_dir = get_item_dir()
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
         return
 
     selected_folders = [name for name, var in folder_vars.items() if var.get()]
@@ -449,13 +378,13 @@ def run_psd_to_png(folder_vars, ignore_00_var, log_text, root):
         return
 
     ignore_00 = ignore_00_var.get()
-    log(f"PSD to PNG export — folders: {', '.join(selected_folders)}")
+    log(f"PSD to PNG export - folders: {', '.join(selected_folders)}")
     total_exported = 0
     total_skipped = 0
 
     for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if not os.path.isdir(folder_path):
+        folder_path = folder_map.get(entry)
+        if not folder_path or not os.path.isdir(folder_path):
             continue
         log(f"Folder: {entry}")
         psd_files = [f for f in os.listdir(folder_path)
@@ -513,16 +442,24 @@ def run_psd_to_png(folder_vars, ignore_00_var, log_text, root):
     log(f"\nDone. Exported {total_exported} PNG(s), skipped {total_skipped} (up to date).")
 
 
-def run_clean_dds(folder_vars, log_text, root):
+def run_make_2x(folder_vars, ignore_00_var, log_text, root):
     log_text.delete("1.0", tk.END)
     def log(msg):
         log_text.insert(tk.END, msg + "\n")
         log_text.see(tk.END)
         root.update_idletasks()
 
-    item_dir = get_item_dir()
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
+    try:
+        from psd_tools import PSDImage
+        from psd_tools.constants import ColorMode
+        from PIL import Image
+    except ImportError:
+        messagebox.showerror("Missing Dependency", "psd_tools and Pillow are required for Make 2x.")
+        return
+
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
         return
 
     selected_folders = [name for name, var in folder_vars.items() if var.get()]
@@ -530,16 +467,105 @@ def run_clean_dds(folder_vars, log_text, root):
         messagebox.showwarning("No Folders Selected", "Please select at least one mod folder.")
         return
 
-    if not messagebox.askyesno("Confirm Clean DDS",
+    ignore_00 = ignore_00_var.get()
+    log(f"Make 2x - folders: {', '.join(selected_folders)}")
+    total_exported = 0
+    total_skipped = 0
+
+    for entry in selected_folders:
+        folder_path = folder_map.get(entry)
+        if not folder_path or not os.path.isdir(folder_path):
+            continue
+
+        folder_2x = entry + "_2x"
+        folder_2x_path = os.path.join(os.path.dirname(folder_path), folder_2x)
+        os.makedirs(folder_2x_path, exist_ok=True)
+
+        log(f"Folder: {entry} -> {folder_2x}")
+        psd_files = [f for f in os.listdir(folder_path)
+                     if f.lower().endswith(".psd") and not (ignore_00 and f.startswith("00_"))]
+        psd_files.sort()
+
+        if not psd_files:
+            log("  No PSD files found, skipping.")
+            continue
+
+        for psd_name in psd_files:
+            base_name = os.path.splitext(psd_name)[0]
+            psd_path = os.path.join(folder_path, psd_name)
+            png_2x_path = os.path.join(folder_2x_path, base_name + ".png")
+
+            if os.path.isfile(png_2x_path):
+                psd_mtime = os.path.getmtime(psd_path)
+                png_2x_mtime = os.path.getmtime(png_2x_path)
+                if png_2x_mtime >= psd_mtime:
+                    total_skipped += 1
+                    log(f"  Skipping {psd_name} (2x PNG up to date)")
+                    continue
+
+            log(f"  Exporting {psd_name} -> 2x {base_name}.png")
+            try:
+                psd = PSDImage.open(psd_path)
+                composite = psd.composite(force=True).convert("RGB")
+                width, height = composite.size
+
+                alpha_img = None
+                try:
+                    header = psd._record.header
+                    color_channels = {
+                        ColorMode.BITMAP: 1, ColorMode.GRAYSCALE: 1,
+                        ColorMode.INDEXED: 1, ColorMode.RGB: 3,
+                        ColorMode.CMYK: 4, ColorMode.MULTICHANNEL: 1,
+                        ColorMode.DUOTONE: 1, ColorMode.LAB: 3,
+                    }.get(header.color_mode, 3)
+                    if header.channels > color_channels and header.depth == 8:
+                        channel_bytes = psd._record.image_data.get_data(header, split=True)
+                        alpha_img = Image.frombytes("L", (width, height), channel_bytes[-1])
+                except Exception:
+                    pass
+
+                if alpha_img is not None:
+                    composite.putalpha(alpha_img)
+                else:
+                    composite = composite.convert("RGBA")
+
+                new_w, new_h = width * 2, height * 2
+                composite_2x = composite.resize((new_w, new_h), Image.LANCZOS)
+                composite_2x.save(png_2x_path)
+                total_exported += 1
+            except Exception as e:
+                log(f"    ERROR exporting {psd_name}: {e}")
+
+    log(f"\nDone. Exported {total_exported} 2x PNG(s), skipped {total_skipped} (up to date).")
+
+
+def run_clean_dds(folder_vars, log_text, root):
+    log_text.delete("1.0", tk.END)
+    def log(msg):
+        log_text.insert(tk.END, msg + "\n")
+        log_text.see(tk.END)
+        root.update_idletasks()
+
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
+        return
+
+    selected_folders = [name for name, var in folder_vars.items() if var.get()]
+    if not selected_folders:
+        messagebox.showwarning("No Folders Selected", "Please select at least one mod folder.")
+        return
+
+    if not messagebox.askyesno("Confirm Delete DDS",
                                f"Remove all .dds files from {len(selected_folders)} selected folder(s)?"):
         return
 
-    log(f"Cleaning DDS files — folders: {', '.join(selected_folders)}")
+    log(f"Cleaning DDS files - folders: {', '.join(selected_folders)}")
     total_removed = 0
 
     for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if not os.path.isdir(folder_path):
+        folder_path = folder_map.get(entry)
+        if not folder_path or not os.path.isdir(folder_path):
             continue
         dds_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".dds")]
         if not dds_files:
@@ -594,9 +620,9 @@ def run_create_zip(folder_vars, author_entry, log_text, root):
         log_text.see(tk.END)
         root.update_idletasks()
 
-    item_dir = get_item_dir()
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
         return
 
     selected_folders = [name for name, var in folder_vars.items() if var.get()]
@@ -616,8 +642,8 @@ def run_create_zip(folder_vars, author_entry, log_text, root):
     zips_skipped = 0
 
     for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if not os.path.isdir(folder_path):
+        folder_path = folder_map.get(entry)
+        if not folder_path or not os.path.isdir(folder_path):
             continue
 
         dds_files = sorted([f for f in os.listdir(folder_path) if f.lower().endswith(".dds")])
@@ -672,9 +698,9 @@ def run_create_all_zip(folder_vars, author_entry, include_ui_sfx_var, log_text, 
         log_text.see(tk.END)
         root.update_idletasks()
 
-    item_dir = get_item_dir()
-    if not os.path.isdir(item_dir):
-        messagebox.showerror("Error", f"ITEM directory not found:\n{item_dir}")
+    folder_map = get_folder_map()
+    if not folder_map:
+        messagebox.showerror("Error", "No mod folders found in ITEM or ENV directories.")
         return
 
     selected_folders = [name for name, var in folder_vars.items() if var.get()]
@@ -735,8 +761,8 @@ def run_create_all_zip(folder_vars, author_entry, include_ui_sfx_var, log_text, 
             log(f"  PowerNotReady_removal: manifest.json not found, skipping.")
 
     for entry in selected_folders:
-        folder_path = os.path.join(item_dir, entry)
-        if not os.path.isdir(folder_path):
+        folder_path = folder_map.get(entry)
+        if not folder_path or not os.path.isdir(folder_path):
             continue
 
         dds_files = sorted([f for f in os.listdir(folder_path) if f.lower().endswith(".dds")])
@@ -760,8 +786,8 @@ def run_create_all_zip(folder_vars, author_entry, include_ui_sfx_var, log_text, 
         zip_mtime = os.path.getmtime(existing_all_zip)
         needs_rebuild = False
         for entry in selected_folders:
-            folder_path = os.path.join(item_dir, entry)
-            if os.path.isdir(folder_path) and _folder_has_newer_files(folder_path, existing_all_zip):
+            folder_path = folder_map.get(entry)
+            if folder_path and os.path.isdir(folder_path) and _folder_has_newer_files(folder_path, existing_all_zip):
                 needs_rebuild = True
                 break
         if not needs_rebuild and include_ui_sfx:
@@ -845,6 +871,32 @@ def get_item_dir():
     return os.path.normpath(item_dir)
 
 
+def get_env_dir():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    env_dir = os.path.join(script_dir, "..", "ENV")
+    return os.path.normpath(env_dir)
+
+
+def get_source_dirs():
+    """Return ordered dict {category: abs_path} for source roots that exist (ITEM, ENV)."""
+    dirs = {}
+    for category, path in (("ITEM", get_item_dir()), ("ENV", get_env_dir())):
+        if os.path.isdir(path):
+            dirs[category] = path
+    return dirs
+
+
+def get_folder_map():
+    """Return {folder_name: abs_path} for all mod folders across source roots."""
+    folder_map = {}
+    for source_dir in get_source_dirs().values():
+        for entry in sorted(os.listdir(source_dir)):
+            full_path = os.path.join(source_dir, entry)
+            if os.path.isdir(full_path):
+                folder_map[entry] = full_path
+    return folder_map
+
+
 def load_config():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     path = os.path.join(script_dir, CONFIG_FILE)
@@ -867,34 +919,45 @@ def save_config(values):
         pass
 
 
-def discover_folders(item_dir):
-    if not os.path.isdir(item_dir):
-        return []
-    return sorted([entry for entry in os.listdir(item_dir) if os.path.isdir(os.path.join(item_dir, entry))])
-
-
-def refresh_folder_list(folder_frame, folder_vars, item_dir, log_func=None):
+def refresh_folder_list(folder_frame, folder_vars, log_func=None):
     for widget in folder_frame.winfo_children():
         widget.destroy()
     folder_vars.clear()
 
-    folders = discover_folders(item_dir)
-    if not folders:
+    source_dirs = get_source_dirs()
+    if not source_dirs:
         tk.Label(
-            folder_frame, text="No mod folders found in ITEM.", bg="#1e1e1e", fg="#b0b0b0"
-        ).pack(fill=tk.X, pady=5)
+            folder_frame, text="No mod folders found in ITEM or ENV.", bg="#1e1e1e", fg="#b0b0b0"
+        ).grid(row=0, column=0, columnspan=2, sticky=tk.W, pady=5)
         return
 
-    for name in folders:
-        var = tk.BooleanVar(value=True)
-        folder_vars[name] = var
-        cb = tk.Checkbutton(
-            folder_frame, text=name, variable=var,
-            bg="#1e1e1e", fg="#b0b0b0", selectcolor="#000000",
-            activebackground="#1e1e1e", activeforeground="#b0b0b0",
-            anchor=tk.W
-        )
-        cb.pack(fill=tk.X, padx=5, pady=1)
+    row_idx = 0
+    for category, source_dir in source_dirs.items():
+        folders = sorted([e for e in os.listdir(source_dir)
+                          if os.path.isdir(os.path.join(source_dir, e))])
+        if not folders:
+            continue
+        tk.Label(
+            folder_frame, text=category, bg="#1e1e1e", fg="#5a8ab8",
+            font=("Segoe UI", 9, "bold")
+        ).grid(row=row_idx, column=0, columnspan=2, sticky=tk.W, padx=5, pady=(4, 1))
+        row_idx += 1
+        for idx, name in enumerate(folders):
+            var = tk.BooleanVar(value=True)
+            folder_vars[name] = var
+            cb = tk.Checkbutton(
+                folder_frame, text=name, variable=var,
+                bg="#1e1e1e", fg="#b0b0b0", selectcolor="#000000",
+                activebackground="#1e1e1e", activeforeground="#b0b0b0",
+                anchor=tk.W
+            )
+            row = row_idx + idx // 2
+            col = idx % 2
+            cb.grid(row=row, column=col, sticky=tk.W, padx=5, pady=1)
+        row_idx += (len(folders) + 1) // 2
+
+    folder_frame.columnconfigure(0, weight=1, uniform="folder")
+    folder_frame.columnconfigure(1, weight=1, uniform="folder")
 
 
 def set_all_folders(folder_vars, value):
@@ -1041,7 +1104,7 @@ def main():
         bg=SECTION_BG, fg=FG, selectcolor=ENTRY_BG, activebackground=SECTION_BG, activeforeground=FG
     ).grid(row=0, column=0, columnspan=3, sticky=tk.W, pady=(0, 4))
     tk.Checkbutton(
-        target_frame, text="Total replace on refresh", variable=total_replace_var,
+        target_frame, text="Total replace target folder", variable=total_replace_var,
         bg=SECTION_BG, fg=FG, selectcolor=ENTRY_BG, activebackground=SECTION_BG, activeforeground=FG
     ).grid(row=1, column=0, columnspan=3, sticky=tk.W, pady=(0, 4))
 
@@ -1063,10 +1126,9 @@ def main():
     folder_controls = tk.Frame(folder_section, bg=BG)
     folder_controls.pack(fill=tk.X, pady=(0, 5))
 
-    item_dir = get_item_dir()
     folder_vars = {}
 
-    folder_canvas = tk.Canvas(folder_section, bg=LIST_BG, highlightthickness=0, height=140)
+    folder_canvas = tk.Canvas(folder_section, bg=LIST_BG, highlightthickness=0, height=200)
     folder_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
     folder_scrollbar = ttk.Scrollbar(folder_section, orient=tk.VERTICAL, command=folder_canvas.yview,
                                      style="Dark.Vertical.TScrollbar")
@@ -1092,17 +1154,15 @@ def main():
     tk.Button(
         folder_controls, text="Refresh List", bg=BTN_UTILITY, fg=FG, padx=8, pady=2,
         activebackground=BTN_UTILITY_ACT, activeforeground="#ffffff",
-        command=lambda: refresh_folder_list(folder_frame, folder_vars, item_dir)
+        command=lambda: refresh_folder_list(folder_frame, folder_vars)
     ).pack(side=tk.LEFT, padx=3)
 
-    refresh_folder_list(folder_frame, folder_vars, item_dir)
+    refresh_folder_list(folder_frame, folder_vars)
 
     # =================== SECTION 3: Actions ===================
     # Button color palette
     BTN_EXPORT = "#2d5a2d"
     BTN_EXPORT_ACT = "#3a7a3a"
-    BTN_REFRESH = "#4a3a6b"
-    BTN_REFRESH_ACT = "#5c4a80"
     BTN_PSDPNG = "#2d4a5a"
     BTN_PSDPNG_ACT = "#3a5c70"
     BTN_CLEAN = "#5a2d2d"
@@ -1124,19 +1184,15 @@ def main():
             command=cmd
         )
 
-    # Row 1: DDS pipeline (green / purple)
+    # Row 1: DDS pipeline (green)
     dds_row = tk.Frame(actions_frame, bg=BG)
     dds_row.pack(fill=tk.X, pady=(0, 4))
 
-    _action_btn(dds_row, "EXPORT DDS", BTN_EXPORT, BTN_EXPORT_ACT,
+    _action_btn(dds_row, "EXPORT TO MOD", BTN_EXPORT, BTN_EXPORT_ACT,
                 lambda: run_export(texconv_entry, author_entry, source_mode_var, export_target_var,
                                    target_entry, folder_vars, dds_format_var, bc_quality_var,
                                    dds_header_var, mipmaps_var, pmalpha_var, ignore_00_var,
                                    total_replace_var, log_text, root, config),
-                font_size=11).pack(side=tk.LEFT, padx=4)
-
-    _action_btn(dds_row, "REFRESH TARGET", BTN_REFRESH, BTN_REFRESH_ACT,
-                lambda: run_refresh(author_entry, target_entry, folder_vars, total_replace_var, log_text, root, config),
                 font_size=11).pack(side=tk.LEFT, padx=4)
 
     # Row 2: File utilities (blue / red)
@@ -1146,7 +1202,10 @@ def main():
     _action_btn(util_row, "PSD to PNG", BTN_PSDPNG, BTN_PSDPNG_ACT,
                 lambda: run_psd_to_png(folder_vars, ignore_00_var, log_text, root)).pack(side=tk.LEFT, padx=4)
 
-    _action_btn(util_row, "Clean DDS", BTN_CLEAN, BTN_CLEAN_ACT,
+    _action_btn(util_row, "Make 2x", BTN_PSDPNG, BTN_PSDPNG_ACT,
+                lambda: run_make_2x(folder_vars, ignore_00_var, log_text, root)).pack(side=tk.LEFT, padx=4)
+
+    _action_btn(util_row, "DELETE DDS", BTN_CLEAN, BTN_CLEAN_ACT,
                 lambda: run_clean_dds(folder_vars, log_text, root)).pack(side=tk.LEFT, padx=4)
 
     # Row 3: ZIP packaging (gold / green)
