@@ -1,0 +1,12 @@
+{
+  "size": 160,
+  "grid": [2, 2],
+  "padding": 0,
+  "fit": "cover",
+  "items": [
+    "sinlabnpe_floors.sinisterlabsnpe_floors_a_diff.png",
+    "sinlabnpe_walls.wall_metal_txt_diff.png",
+    "sinlabnpe_floors.sinisterlabsnpe_floors_b_diff.png",
+    "sinlabnpe_walls.sinlabnpe_labdecals_a.png"
+  ]
+}

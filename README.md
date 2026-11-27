@@ -1,40 +1,50 @@
 # Marvel Heroes Omega art mods 
-Marvel Heroes Omega fan art client modifications
+texture pack fan art modifications of item icons , UI , and environments in Marvel Heroes Omega
 
-DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip )    |    [INSTALL GUIDE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install) | [SOURCE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip)
+[VIEW WEBSITE]( https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ )   | DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ALL_20260724.zip )    |          [INSTALL GUIDE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods#install) | [SOURCE]( https://github.com/CorvaeOboro/marvel_heroes_omega_art_mods/archive/refs/heads/main.zip)
 
 [ITEM_DarkRunes]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip )    | [ITEM_UruReForged]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip )    | [ITEM_ArtifactsArmor]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip )    | [ITEM_BattleforgedBaubles]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip ) + [2x ( 80px )]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip )    | [UI_Item_NoGlassOverlay]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip )    |  [PowerNotReady]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip ) | [ENV_SinisterLab]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ENV_SinisterLab_DarkPurple_20261103.zip )
 
 
+<table>
+<tr>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/DarkRunes.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes_thumb.png" width="60" height="60" alt="ITEM_DarkRunes"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/UruReForged.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_UruReForged_2x/00_ITEM_UruReForged_2x_thumb.png" width="60" height="60" alt="ITEM_UruReForged"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/ArtifactsArmor.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_ArtifactsArmor_2x/00_ITEM_ArtifactsArmor_2x_thumb.png" width="60" height="60" alt="ITEM_ArtifactsArmor"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/BattleforgedBaubles.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_BattleforgedBaubles_2x/00_ITEM_BattleforgedBaubles_2x_thumb.png" width="60" height="60" alt="ITEM_BattleforgedBaubles"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ENV/SinisterLab.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ENV/ENV_SinisterLab_DarkPurple/00_ENV_SinisterLab_DarkPurple_thumb.png" width="60" height="60" alt="ENV_SinisterLab"></a></td>
+</tr>
+</table>
+
 ## ITEM_DarkRunes
-![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")
+[![ITEM_DarkRunes](/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes.png?raw=true "ITEM_DarkRunes")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/DarkRunes.html)
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_DarkRunes_20260724.zip)  | Runes of Asgardian magic carved into basalt stone 
 
 ## ITEM_UruReForged
-![ITEM_UruReForged](/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png?raw=true "ITEM_UruReForged")
+[![ITEM_UruReForged](/ITEM/ITEM_UruReForged/00_ITEM_UruReForged.png?raw=true "ITEM_UruReForged")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/UruReForged.html)
 
 [DOWNLOAD ( 40px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_20260630.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_UruReForged_2x_20260724.zip) | Nidavellir dwarven Uru metal forged by Asgardian smiths into magic armor
 
 ## ITEM_ArtifactsArmor
-![ITEM_ArtifactsArmor](/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png?raw=true "ITEM_ArtifactsArmor")
+[![ITEM_ArtifactsArmor](/ITEM/ITEM_ArtifactsArmor/00_ITEM_ArtifactsArmor.png?raw=true "ITEM_ArtifactsArmor")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/ArtifactsArmor.html)
 
 [DOWNLOAD ( 40px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_20260724.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_ArtifactsArmor_2x_20260724.zip) | ancient Artifacts of powers cosmic awakened Armor enchanted by the techno-logical
 
 ## ITEM_BattleforgedBaubles
-![ITEM_BattleforgedBaubles](/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png?raw=true "ITEM_BattleforgedBaubles")
+[![ITEM_BattleforgedBaubles](/ITEM/ITEM_BattleforgedBaubles/00_ITEM_BattleforgedBaubles.png?raw=true "ITEM_BattleforgedBaubles")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/BattleforgedBaubles.html)
 
 [DOWNLOAD ( 40px ) ](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_20260724.zip) | [2x ( 80px )](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ITEM_BattleforgedBaubles_2x_20260724.zip) | bionicly built Baubles forged in Battles from the beyond 
 
 ---
 
 ## UI_Item_NoGlassOverlay
-![UI_Item_NoGlassOverlay](/UI/UI_Item_NoGlassOverlay_compare.webp?raw=true "UI_Item_NoGlassOverlay")
+[![UI_Item_NoGlassOverlay](/UI/UI_Item_NoGlassOverlay_compare.webp?raw=true "UI_Item_NoGlassOverlay")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/UI/NoGlassOverlay.html)
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/UI_Item_NoGlassOverlay_20260630.zip)  | removes the "glass" style bevel emboss on item and power icons
 
 ## Power Not Ready = hidden
-![Power Not Ready = hidden](/UI/marvel_heroes_omega_mod_display_message_removal.png?raw=true "Power Not Ready = hidden")
+[![Power Not Ready = hidden](/UI/marvel_heroes_omega_mod_display_message_removal.png?raw=true "Power Not Ready = hidden")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/UI/PowerNotReady.html)
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/PowerNotReady_removal.zip) 
 - a locale string replacement client mod to hide the display of "Power not ready" red text and other similar failure messages  
@@ -54,7 +64,7 @@ DOWNLOAD = [ALL]( https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_om
 ---
 
 ## ENV_SinisterLab
-![ENV_SinisterLab](/docs/ENV/marvel_heroes_omega_env_sinister_lab_04.png?raw=true "ENV_SinisterLab")
+[![ENV_SinisterLab](/docs/ENV/marvel_heroes_omega_env_sinister_lab_04.png?raw=true "ENV_SinisterLab")](https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ENV/SinisterLab.html)
 
 [DOWNLOAD](https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/00_MODS/ENV_SinisterLab_DarkPurple_20261103.zip) | [UPK version](https://drive.google.com/file/d/1Bwo_cecB8mexd1tmlVJD358Emzh0HXZ1) | the Sinister Lab darkened and non-reflective with wide beveled panel lines
 

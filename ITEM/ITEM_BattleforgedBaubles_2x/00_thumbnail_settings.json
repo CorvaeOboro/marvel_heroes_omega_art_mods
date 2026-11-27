@@ -1,0 +1,12 @@
+{
+  "size": 160,
+  "grid": [2, 2],
+  "padding": 0,
+  "fit": "contain",
+  "items": [
+    "armor_ghostrider_chain.png",
+    "item_artifact54.png",
+    "item_artifact078.png",
+    "item_unique209.png"
+  ]
+}

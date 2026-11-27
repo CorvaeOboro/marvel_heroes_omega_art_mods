@@ -1,0 +1,12 @@
+{
+  "size": 160,
+  "grid": [2, 2],
+  "padding": 0,
+  "fit": "contain",
+  "items": [
+    "item_ururune01.png",
+    "item_ururune05.png",
+    "item_ururune23.png",
+    "item_ururune16.png"
+  ]
+}
