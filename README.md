@@ -8,11 +8,11 @@ texture pack fan art modifications of item icons , UI , and environments in Marv
 
 <table>
 <tr>
-<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/DarkRunes.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes_thumb.png" width="60" height="60" alt="ITEM_DarkRunes"></a></td>
-<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/UruReForged.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_UruReForged_2x/00_ITEM_UruReForged_2x_thumb.png" width="60" height="60" alt="ITEM_UruReForged"></a></td>
-<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/ArtifactsArmor.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_ArtifactsArmor_2x/00_ITEM_ArtifactsArmor_2x_thumb.png" width="60" height="60" alt="ITEM_ArtifactsArmor"></a></td>
-<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/BattleforgedBaubles.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_BattleforgedBaubles_2x/00_ITEM_BattleforgedBaubles_2x_thumb.png" width="60" height="60" alt="ITEM_BattleforgedBaubles"></a></td>
-<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ENV/SinisterLab.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ENV/ENV_SinisterLab_DarkPurple/00_ENV_SinisterLab_DarkPurple_thumb.png" width="60" height="60" alt="ENV_SinisterLab"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/DarkRunes.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_DarkRunes/00_ITEM_DarkRunes_thumb.png" width="120" height="120" alt="ITEM_DarkRunes"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/UruReForged.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_UruReForged_2x/00_ITEM_UruReForged_2x_thumb.png" width="120" height="120" alt="ITEM_UruReForged"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/ArtifactsArmor.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_ArtifactsArmor_2x/00_ITEM_ArtifactsArmor_2x_thumb.png" width="120" height="120" alt="ITEM_ArtifactsArmor"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ITEM/BattleforgedBaubles.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ITEM/ITEM_BattleforgedBaubles_2x/00_ITEM_BattleforgedBaubles_2x_thumb.png" width="120" height="120" alt="ITEM_BattleforgedBaubles"></a></td>
+<td><a href="https://corvaeoboro.github.io/marvel_heroes_omega_art_mods/ENV/SinisterLab.html"><img src="https://raw.githubusercontent.com/CorvaeOboro/marvel_heroes_omega_art_mods/main/ENV/ENV_SinisterLab_DarkPurple/00_ENV_SinisterLab_DarkPurple_thumb.png" width="120" height="120" alt="ENV_SinisterLab"></a></td>
 </tr>
 </table>
 
